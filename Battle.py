@@ -32,10 +32,10 @@ class Battle:
                         roll1 = printedBonus + army1.bonus
                         
                         roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army1.name,roll1,roll1-army1.bonus,army1.bonus)
-                        if (bonus > 0):
-                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,bonus)
-                        elif (bonus < 0):
-                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,bonus)
+                        if (army1.bonus > 0):
+                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,army1.bonus)
+                        elif (army1.bonus < 0):
+                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,army1.bonus)
                         elif (noDice > 1):
                             roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
                         else:
@@ -57,10 +57,10 @@ class Battle:
                         roll2 = printedBonus + army2.bonus
                         
                         roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army2.name,roll2,roll2-army2.bonus,army2.bonus)
-                        if (bonus > 0):
-                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,bonus)
-                        elif (bonus < 0):
-                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,bonus)
+                        if (army2.bonus > 0):
+                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,army2.bonus)
+                        elif (army2.bonus < 0):
+                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,army2.bonus)
                         elif (noDice > 1):
                             roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
                         else:
