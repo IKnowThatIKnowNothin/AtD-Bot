@@ -436,6 +436,74 @@ class Battle:
                         battlemessage += "#**Casualties** \n \n".format(army1.name,army2.name)
                         if (Globals.battleType == "Naval"):
                                 if(100 - army1.morale <= 0):
+                                        attackcas += 50
+                                        for x in range(6):
+                                                attackcas += self.numberGen(7)
+                                elif(100 - army1.morale <= 76):
+                                        attackcas += 35
+                                        for x in range(3):
+                                                attackcas += self.numberGen(5)
+                                elif(100 - army1.morale <= 61):
+                                        attackcas += 25
+                                        for x in range(3):
+                                                attackcas += self.numberGen(5)
+                                elif(100 - army1.morale <= 45):
+                                        attackcas += 20
+                                        for x in range(2):
+                                                attackcas += self.numberGen(2)
+                                elif(100 - army1.morale <= 31):
+                                        attackcas += 12
+                                        for x in range(1):
+                                                attackcas += self.numberGen(8)
+                                elif(100 - army1.morale <= 16):
+                                        attackcas += 8
+                                        for x in range(1):
+                                                attackcas += self.numberGen(4)
+                                elif(100 - army1.morale <= 6):
+                                        attackcas += 4
+                                        for x in range(1):
+                                                attackcas += self.numberGen(3)
+                                else:
+                                        attackcas += 3
+                                        for x in range(1):
+                                                attackcas += self.numberGen(2)
+                                                
+                                if(100 - army2.morale <= 0):
+                                        defendcas += 50
+                                        for x in range(6):
+                                                defendcas += self.numberGen(7)
+                                elif(100 - army2.morale <= 76):
+                                        defendcas += 35
+                                        for x in range(3):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 61):
+                                        defendcas += 25
+                                        for x in range(3):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 45):
+                                        defendcas += 20
+                                        for x in range(2):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 31):
+                                        defendcas += 12
+                                        for x in range(1):
+                                                defendcas += self.numberGen(8)
+                                elif(100 - army2.morale <= 16):
+                                        defendcas += 8
+                                        for x in range(1):
+                                                defendcas += self.numberGen(4)
+                                elif(100 - army2.morale <= 6):
+                                        defendcas += 4
+                                        for x in range(1):
+                                                defendcas += self.numberGen(3)
+                                else:
+                                        defendcas += 3
+                                        for x in range(1):
+                                                defendcas += self.numberGen(2)
+                                                
+                        #Land Battle casualties          
+                        else:
+                                if(100 - army1.morale <= 0):
                                         attackcas += 35
                                         for x in range(3):
                                                 attackcas += self.numberGen(5)
@@ -497,144 +565,11 @@ class Battle:
                                                 defendcas += self.numberGen(2)
                                 else:
                                         for x in range(1):
-                                                defendcas += self.numberGen(3)
-                                  
-                        else:
-                                if(army2.morale == 0):
-                                        if(army1.morale == 4):
-                                                for x in range(2):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 1
-                                                for x in range(14):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 9
-                                        elif(army1.morale == 3):
-                                                for x in range(4):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 3
-                                                for x in range(11):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 7
-                                        elif(army1.morale == 2):
-                                                for x in range(5):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 4
-                                                for x in range(9):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 6 
-                                        elif(army1.morale == 1):
-                                                for x in range(6):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 5
-                                                for x in range(7):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 5
+                                                defendcas += self.numberGen(3)                                 
                                                 
-                                elif(army1.morale == 0):
-                                        if(army2.morale == 4):
-                                                for x in range(2):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 1
-                                                for x in range(14):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 9
-                                        elif(army2.morale == 3):
-                                                for x in range(4):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 3
-                                                for x in range(11):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 7
-                                        elif(army2.morale == 2):
-                                                for x in range(5):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 4
-                                                for x in range(9):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 6 
-                                        elif(army2.morale == 1):
-                                                for x in range(6):
-                                                        defendcas += self.numberGen(3)
-                                                defendcas += 5
-                                                for x in range(7):
-                                                        attackcas += self.numberGen(3)
-                                                attackcas += 5                                 
-                                                
-                                
-                                
-                                if (army1.commanderBonus >= 9):
-                                        attcas = attackcas*0.8
-                                        if (army2.commanderBonus >= 9):
-                                                defcas = defendcas*0.8
-                                                battlemessage += "{} Casualties = {}% ({}*0.8) \n \n{} Casualties = {}% ({}*0.8)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 6):
-                                                defcas = defendcas*0.9
-                                                battlemessage += "{} Casualties = {}% ({}*0.8) \n \n{} Casualties = {}% ({}*0.9)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 3):
-                                                defcas = defendcas*0.95
-                                                battlemessage += "{} Casualties = {}% ({}*0.8) \n \n{} Casualties = {}% ({}*0.95)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        else:
-                                                battlemessage += "{} Casualties = {}% ({}*0.8) \n \n{} Casualties = {}%\n \n".format(army1.name,attcas,attackcas,army2.name,defendcas)
-                                                battlemessage += "--- \n \n"
-                                                
-                                elif (army1.commanderBonus == 6):
-                                        attcas = attackcas*0.9
-                                        if (army2.commanderBonus >= 9):
-                                                defcas = defendcas*0.8
-                                                battlemessage += "{} Casualties = {}% ({}*0.9) \n \n{} Casualties = {}% ({}*0.8)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 6):
-                                                defcas = defendcas*0.9
-                                                battlemessage += "{} Casualties = {}% ({}*0.9) \n \n{} Casualties = {}% ({}*0.9)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 3):
-                                                defcas = defendcas*0.95
-                                                battlemessage += "{} Casualties = {}% ({}*0.9) \n \n{} Casualties = {}% ({}*0.95)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        else:
-                                                battlemessage += "{} Casualties = {}% ({}*0.9) \n \n{} Casualties = {}% \n \n".format(army1.name,attcas,attackcas,army2.name,defendcas)
-                                                battlemessage += "--- \n \n"
-                                                
-                                elif (army1.commanderBonus == 3):
-                                        attcas = attackcas*0.95
-                                        if (army2.commanderBonus >= 9):
-                                                defcas = defendcas*0.8
-                                                battlemessage += "{} Casualties = {}% ({}*0.95) \n \n{} Casualties = {}% ({}*0.8)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 6):
-                                                defcas = defendcas*0.9
-                                                battlemessage += "{} Casualties = {}% ({}*0.95) \n \n{} Casualties = {}% ({}*0.9)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 3):
-                                                defcas = defendcas*0.95
-                                                battlemessage += "{} Casualties = {}% ({}*0.95) \n \n{} Casualties = {}% ({}*0.95)\n \n".format(army1.name,attcas,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        else:
-                                                battlemessage += "{} Casualties = {}% ({}*0.95) \n \n{} Casualties = {}% \n \n".format(army1.name,attcas,attackcas,army2.name,defendcas)
-                                                battlemessage += "--- \n \n"
-                                                
-                                else:
-                                        if (army2.commanderBonus >= 9):
-                                                defcas = defendcas*0.8
-                                                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% ({}*0.8)\n \n".format(army1.name,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 6):
-                                                defcas = defendcas*0.9
-                                                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% ({}*0.9)\n \n".format(army1.name,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        elif (army2.commanderBonus == 3):
-                                                defcas = defendcas*0.95
-                                                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% ({}*0.95)\n \n".format(army1.name,attackcas,army2.name,defcas,defendcas)
-                                                battlemessage += "--- \n \n"
-                                        else:
-                                                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
-                                                battlemessage += "--- \n \n"
 
-                #battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
-                #battlemessage += "--- \n \n"                                
+                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
+                battlemessage += "--- \n \n"                                
                                                 
                 battlemessage += "**REMINDER** that casualties of the larger army is affected by relative size, this must be calculated manually \n \n"
                 battlemessage += "--- \n \n" 
