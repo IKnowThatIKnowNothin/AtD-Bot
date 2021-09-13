@@ -68,8 +68,8 @@ class Battle:
                         
                         if True:
                                 if(roll1>roll2):
-                                        difference = roll1 - roll2                                       
-                                        army2.morale -= difference
+                                        gap = roll1 - roll2                                       
+                                        army2.morale -= gap
                                         
                                                                                
                                         if(army2.morale == 0):
@@ -82,8 +82,8 @@ class Battle:
                                                 roundmessage += "Rounds taken: {} \n \n".format(roundCount)
                                 
                                 elif(roll2>roll1):
-                                        difference = roll2 - roll1                                       
-                                        army1.morale -= difference
+                                        gap = roll2 - roll1                                       
+                                        army1.morale -= gap
                                          
                                         
                                         if(army1.morale == 0):
@@ -151,48 +151,66 @@ class Battle:
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference <= 15):
-                                army1.bonus +=1
-                        elif(difference <= 35):
+                        if(difference >= 2.5 and difference <= 20):
+                                army1.bonus += 1
+                        elif(difference <= 40):
                                 army1.bonus += 2
-                        elif(difference <= 50):
+                        elif(difference <= 60):
                                 army1.bonus += 3
-                        elif(difference <= 65):
+                        elif(difference <= 80):
                                 army1.bonus += 4
-                        elif(difference <= 75):
-                                army1.bonus += 5
-                        elif(difference <= 85):
-                                army1.bonus += 6
                         elif(difference <= 100):
+                                army1.bonus += 5
+                        elif(difference <= 120):
+                                army1.bonus += 6
+                        elif(difference <= 140):
                                 army1.bonus += 7
-                        elif(difference <= 130):
-                                army1.bonus += 8
                         elif(difference <= 160):
+                                army1.bonus += 8
+                        elif(difference <= 180):
                                 army1.bonus += 9
                         elif(difference <= 200):
                                 army1.bonus += 10
-                        elif(difference <= 250):
+                        elif(difference <= 220):
                                 army1.bonus += 11
-                        elif(difference <= 300):
+                        elif(difference <= 240):
                                 army1.bonus += 12
-                        elif(difference <= 330):
+                        elif(difference <= 260):
                                 army1.bonus += 13
-                        elif(difference <= 370):
+                        elif(difference <= 280):
                                 army1.bonus += 14
-                        elif(difference <= 400):
+                        elif(difference <= 300):
                                 army1.bonus += 15
-                        elif(difference <= 450):
+                        elif(difference <= 320):
                                 army1.bonus += 16
-                        elif(difference <= 500):
+                        elif(difference <= 340):
                                 army1.bonus += 17
-                        elif(difference <= 600):
+                        elif(difference <= 360):
                                 army1.bonus += 18
-                        elif(difference <= 750):
+                        elif(difference <= 380):
                                 army1.bonus += 19
-                        elif(difference <= 900):
+                        elif(difference <= 400):
                                 army1.bonus += 20
-                        elif(difference <= 1399):
+                        elif(difference <= 420):
                                 army1.bonus += 21
+                        elif(difference <= 440):
+                                army1.bonus += 22
+                        elif(difference <= 460):
+                                army1.bonus += 23
+                        elif(difference <= 480):
+                                army1.bonus += 24
+                        elif(difference <= 500):
+                                army1.bonus += 25
+                        elif(difference <= 520):
+                                army1.bonus += 26
+                        elif(difference <= 540):
+                                army1.bonus += 27
+                        elif(difference <= 560):
+                                army1.bonus += 28
+                        elif(difference <= 580):
+                                army1.bonus += 29
+                        elif(difference <= 600):
+                                army1.bonus += 30
                         else:
                                 autosurrender = 2
 
@@ -200,112 +218,198 @@ class Battle:
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference <= 15):
-                                army2.bonus +=1
-                        elif(difference <= 35):
+                        if(difference >= 2.5 and difference <= 20):
+                                army2.bonus += 1
+                        elif(difference <= 40):
                                 army2.bonus += 2
-                        elif(difference <= 50):
+                        elif(difference <= 60):
                                 army2.bonus += 3
-                        elif(difference <= 65):
+                        elif(difference <= 80):
                                 army2.bonus += 4
-                        elif(difference <= 75):
-                                army2.bonus += 5
-                        elif(difference <= 85):
-                                army2.bonus += 6
                         elif(difference <= 100):
+                                army2.bonus += 5
+                        elif(difference <= 120):
+                                army2.bonus += 6
+                        elif(difference <= 140):
                                 army2.bonus += 7
-                        elif(difference <= 130):
-                                army2.bonus += 8
                         elif(difference <= 160):
+                                army2.bonus += 8
+                        elif(difference <= 180):
                                 army2.bonus += 9
                         elif(difference <= 200):
                                 army2.bonus += 10
-                        elif(difference <= 250):
+                        elif(difference <= 220):
                                 army2.bonus += 11
-                        elif(difference <= 300):
+                        elif(difference <= 240):
                                 army2.bonus += 12
-                        elif(difference <= 330):
+                        elif(difference <= 260):
                                 army2.bonus += 13
-                        elif(difference <= 370):
+                        elif(difference <= 280):
                                 army2.bonus += 14
-                        elif(difference <= 400):
+                        elif(difference <= 300):
                                 army2.bonus += 15
-                        elif(difference <= 450):
+                        elif(difference <= 320):
                                 army2.bonus += 16
-                        elif(difference <= 500):
+                        elif(difference <= 340):
                                 army2.bonus += 17
-                        elif(difference <= 600):
+                        elif(difference <= 360):
                                 army2.bonus += 18
-                        elif(difference <= 750):
+                        elif(difference <= 380):
                                 army2.bonus += 19
-                        elif(difference <= 900):
+                        elif(difference <= 400):
                                 army2.bonus += 20
-                        elif(difference <= 1399):
+                        elif(difference <= 420):
                                 army2.bonus += 21
+                        elif(difference <= 440):
+                                army2.bonus += 22
+                        elif(difference <= 460):
+                                army2.bonus += 23
+                        elif(difference <= 480):
+                                army2.bonus += 24
+                        elif(difference <= 500):
+                                army2.bonus += 25
+                        elif(difference <= 520):
+                                army2.bonus += 26
+                        elif(difference <= 540):
+                                army2.bonus += 27
+                        elif(difference <= 560):
+                                army2.bonus += 28
+                        elif(difference <= 580):
+                                army2.bonus += 29
+                        elif(difference <= 600):
+                                army2.bonus += 30
                         else:
                                 autosurrender = 1
                 elif(army1.power > army2.power and Globals.battleType != "Naval"):
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference <= 25):
+                        if(difference >= 5 and difference <= 20):
+                                army1.bonus += 1
+                        elif(difference <= 40):
                                 army1.bonus += 2
-                        elif(difference <= 50):
-                                army1.bonus += 6
+                        elif(difference <= 60):
+                                army1.bonus += 3
+                        elif(difference <= 80):
+                                army1.bonus += 4
                         elif(difference <= 100):
-                                army1.bonus += 10
-                        elif(difference <= 150):
-                                army1.bonus += 14
+                                army1.bonus += 5
+                        elif(difference <= 120):
+                                army1.bonus += 6
+                        elif(difference <= 140):
+                                army1.bonus += 7
+                        elif(difference <= 160):
+                                army1.bonus += 8
+                        elif(difference <= 180):
+                                army1.bonus += 9
                         elif(difference <= 200):
-                                army1.bonus += 18
+                                army1.bonus += 10
+                        elif(difference <= 220):
+                                army1.bonus += 11
+                        elif(difference <= 240):
+                                army1.bonus += 12
+                        elif(difference <= 260):
+                                army1.bonus += 13
+                        elif(difference <= 280):
+                                army1.bonus += 14
                         elif(difference <= 300):
-                                army1.bonus += 22
+                                army1.bonus += 15
+                        elif(difference <= 320):
+                                army1.bonus += 16
+                        elif(difference <= 340):
+                                army1.bonus += 17
+                        elif(difference <= 360):
+                                army1.bonus += 18
+                        elif(difference <= 380):
+                                army1.bonus += 19
                         elif(difference <= 400):
-                                army1.bonus += 26
+                                army1.bonus += 20
+                        elif(difference <= 420):
+                                army1.bonus += 21
+                        elif(difference <= 440):
+                                army1.bonus += 22
+                        elif(difference <= 460):
+                                army1.bonus += 23
+                        elif(difference <= 480):
+                                army1.bonus += 24
                         elif(difference <= 500):
-                                army1.bonus += 30
+                                army1.bonus += 25
+                        elif(difference <= 520):
+                                army1.bonus += 26
+                        elif(difference <= 540):
+                                army1.bonus += 27
+                        elif(difference <= 560):
+                                army1.bonus += 28
+                        elif(difference <= 580):
+                                army1.bonus += 29
                         elif(difference <= 600):
-                                army1.bonus += 34
-                        elif(difference <= 700):
-                                army1.bonus += 38
-                        elif(difference <= 800):
-                                army1.bonus += 42
-                        elif(difference <= 900):
-                                army1.bonus += 46
-                        elif(difference <= 1000):
-                                army1.bonus += 50
+                                army1.bonus += 30
                         else:
                                 autosurrender = 2
                 elif(army2.power > army1.power and Globals.battleType != "Naval"):
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference <= 25):
+                        if(difference >= 5 and difference <= 20):
+                                army2.bonus += 1
+                        elif(difference <= 40):
                                 army2.bonus += 2
-                        elif(difference <= 50):
-                                army2.bonus += 6
+                        elif(difference <= 60):
+                                army2.bonus += 3
+                        elif(difference <= 80):
+                                army2.bonus += 4
                         elif(difference <= 100):
-                                army2.bonus += 10
-                        elif(difference <= 150):
-                                army2.bonus += 14
+                                army2.bonus += 5
+                        elif(difference <= 120):
+                                army2.bonus += 6
+                        elif(difference <= 140):
+                                army2.bonus += 7
+                        elif(difference <= 160):
+                                army2.bonus += 8
+                        elif(difference <= 180):
+                                army2.bonus += 9
                         elif(difference <= 200):
-                                army2.bonus += 18
+                                army2.bonus += 10
+                        elif(difference <= 220):
+                                army2.bonus += 11
+                        elif(difference <= 240):
+                                army2.bonus += 12
+                        elif(difference <= 260):
+                                army2.bonus += 13
+                        elif(difference <= 280):
+                                army2.bonus += 14
                         elif(difference <= 300):
-                                army2.bonus += 22
+                                army2.bonus += 15
+                        elif(difference <= 320):
+                                army2.bonus += 16
+                        elif(difference <= 340):
+                                army2.bonus += 17
+                        elif(difference <= 360):
+                                army2.bonus += 18
+                        elif(difference <= 380):
+                                army2.bonus += 19
                         elif(difference <= 400):
-                                army2.bonus += 26
+                                army2.bonus += 20
+                        elif(difference <= 420):
+                                army2.bonus += 21
+                        elif(difference <= 440):
+                                army2.bonus += 22
+                        elif(difference <= 460):
+                                army2.bonus += 23
+                        elif(difference <= 480):
+                                army2.bonus += 24
                         elif(difference <= 500):
-                                army2.bonus += 30
+                                army2.bonus += 25
+                        elif(difference <= 520):
+                                army2.bonus += 26
+                        elif(difference <= 540):
+                                army2.bonus += 27
+                        elif(difference <= 560):
+                                army2.bonus += 28
+                        elif(difference <= 580):
+                                army2.bonus += 29
                         elif(difference <= 600):
-                                army2.bonus += 34
-                        elif(difference <= 700):
-                                army2.bonus += 38
-                        elif(difference <= 800):
-                                army2.bonus += 42
-                        elif(difference <= 900):
-                                army2.bonus += 46
-                        elif(difference <= 1000):
-                                army2.bonus += 50
+                                army2.bonus += 30
                         else:
                                 autosurrender = 1
 
@@ -331,8 +435,70 @@ class Battle:
 
                         battlemessage += "#**Casualties** \n \n".format(army1.name,army2.name)
                         if (Globals.battleType == "Naval"):
-                                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}%\n \n".format(army1.name,attackcas,army2.name,defendcas)
-                                battlemessage += "--- \n \n"
+                                if(100 - army1.morale <= 0):
+                                        attackcas += 35
+                                        for x in range(3):
+                                                attackcas += self.numberGen(5)
+                                elif(100 - army1.morale <= 76):
+                                        attackcas += 30
+                                        for x in range(3):
+                                                attackcas += self.numberGen(5)
+                                elif(100 - army1.morale <= 61):
+                                        attackcas += 20
+                                        for x in range(2):
+                                                attackcas += self.numberGen(5)
+                                elif(100 - army1.morale <= 45):
+                                        attackcas += 12
+                                        for x in range(1):
+                                                attackcas += self.numberGen(8)
+                                elif(100 - army1.morale <= 31):
+                                        attackcas += 8
+                                        for x in range(1):
+                                                attackcas += self.numberGen(4)
+                                elif(100 - army1.morale <= 16):
+                                        attackcas += 5
+                                        for x in range(1):
+                                                attackcas += self.numberGen(3)
+                                elif(100 - army1.morale <= 6):
+                                        attackcas += 3
+                                        for x in range(1):
+                                                attackcas += self.numberGen(2)
+                                else:
+                                        for x in range(1):
+                                                attackcas += self.numberGen(3)
+                                                
+                                if(100 - army2.morale <= 0):
+                                        defendcas += 35
+                                        for x in range(3):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 76):
+                                        defendcas += 30
+                                        for x in range(3):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 61):
+                                        defendcas += 20
+                                        for x in range(2):
+                                                defendcas += self.numberGen(5)
+                                elif(100 - army2.morale <= 45):
+                                        defendcas += 12
+                                        for x in range(1):
+                                                defendcas += self.numberGen(8)
+                                elif(100 - army2.morale <= 31):
+                                        defendcas += 8
+                                        for x in range(1):
+                                                defendcas += self.numberGen(4)
+                                elif(100 - army2.morale <= 16):
+                                        defendcas += 5
+                                        for x in range(1):
+                                                defendcas += self.numberGen(3)
+                                elif(100 - army2.morale <= 6):
+                                        defendcas += 3
+                                        for x in range(1):
+                                                defendcas += self.numberGen(2)
+                                else:
+                                        for x in range(1):
+                                                defendcas += self.numberGen(3)
+                                  
                         else:
                                 if(army2.morale == 0):
                                         if(army1.morale == 4):
@@ -466,7 +632,10 @@ class Battle:
                                         else:
                                                 battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
                                                 battlemessage += "--- \n \n"
-       
+
+                #battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
+                #battlemessage += "--- \n \n"                                
+                                                
                 battlemessage += "**REMINDER** that casualties of the larger army is affected by relative size, this must be calculated manually \n \n"
                 battlemessage += "--- \n \n" 
                 
