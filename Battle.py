@@ -22,7 +22,7 @@ class Battle:
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):     
-                            printed = random.randint(1,sizeDice)
+                            printed = random.randint(1,5)
                             printedBonus += printed
                             print("Rolling", name, "\n")
                             if (noDice - number == 1):
@@ -48,7 +48,7 @@ class Battle:
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):     
-                            printed = random.randint(1,sizeDice)
+                            printed = random.randint(1,5)
                             printedBonus += printed
                             print("Rolling", name, "\n")
                             if (noDice - number == 1):
