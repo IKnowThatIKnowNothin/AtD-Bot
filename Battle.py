@@ -15,7 +15,8 @@ class Battle:
                 if False:
                         print("")
                         
-                else:                                      
+                else:      
+                        noDice = 5
                         number = 0
                         printedBonus = 0
                         numberBonus = 0
@@ -41,6 +42,7 @@ class Battle:
                         else:
                             roundmessage += "\n\n *** \n\n"
                         
+                        noDice = 5
                         number = 0
                         printedBonus = 0
                         numberBonus = 0
