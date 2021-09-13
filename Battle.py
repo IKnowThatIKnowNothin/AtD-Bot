@@ -15,15 +15,57 @@ class Battle:
                 if False:
                         print("")
                         
-                else:              
-                        roll1 = army1.attack_roll()
-                        roll2 = army2.attack_roll()
-                                        
-                                        
-                        roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army1.name,roll1,roll1-army1.bonus,army1.bonus)
-                        roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army2.name,roll2,roll2-army2.bonus,army2.bonus
+                else:                                      
+                        number = 0
+                        printedBonus = 0
+                        numberBonus = 0
+                        runningBonus = "("           
+                        while(noDice != number):     
+                            printed = random.randint(1,sizeDice)
+                            printedBonus += printed
+                            print("Rolling", name, "\n")
+                            if (noDice - number == 1):
+                                runningBonus += "{})".format(printed)
+                            else:
+                                runningBonus += "{} + ".format(printed)
+                            number += 1   
+                        roll1 = printedBonus + army1.bonus
                         
-
+                        roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army1.name,roll1,roll1-army1.bonus,army1.bonus)
+                        if (bonus > 0):
+                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,bonus)
+                        elif (bonus < 0):
+                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,bonus)
+                        elif (noDice > 1):
+                            roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
+                        else:
+                            roundmessage += "\n\n *** \n\n"
+                        
+                        number = 0
+                        printedBonus = 0
+                        numberBonus = 0
+                        runningBonus = "("           
+                        while(noDice != number):     
+                            printed = random.randint(1,sizeDice)
+                            printedBonus += printed
+                            print("Rolling", name, "\n")
+                            if (noDice - number == 1):
+                                runningBonus += "{})".format(printed)
+                            else:
+                                runningBonus += "{} + ".format(printed)
+                            number += 1   
+                        roll2 = printedBonus + army2.bonus
+                        
+                        roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army2.name,roll2,roll2-army2.bonus,army2.bonus)
+                        if (bonus > 0):
+                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,bonus)
+                        elif (bonus < 0):
+                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,bonus)
+                        elif (noDice > 1):
+                            roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
+                        else:
+                            roundmessage += "\n\n *** \n\n"
+                        
                         if True:
                                 if(roll1>roll2):
                                         difference = roll1 - roll2                                       
@@ -56,74 +98,11 @@ class Battle:
                 #Godamn python globals. Logs the phase to print out and calculate casualties. Each pass through will add casualties onto the previous, making the total.
                 global attackcas
                 global defendcas
-                if(self.battlePhase == 999):
-                        roundmessage += "**{}** Morale: {} \n \n".format(army1.name,army1.morale)
-                        roundmessage += "**{}** Morale: {} \n \n".format(army2.name,army2.morale)
-                        roundmessage += "--- \n \n"                        
-                elif(self.battlePhase >= 3 and self.battlePhase != 999):
-                        phase = 'Defender Routing'
-                        roundmessage += "##**Phase - Defender Routing** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 0
-                        if(Globals.battleType == "Naval"):
-                                defendcas += 8
-                        else:
-                                defendcas += 25
-                elif(self.battlePhase == 2):
-                        phase = 'Defender Breaking'
-                        roundmessage += "##**Phase - {}** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 0.25
-                        defendcas += 4
-                elif(self.battlePhase == 1):
-                        phase = 'Defender Losing'
-                        roundmessage += "##**Phase - {}** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 0.5
-                        defendcas += 2
-                elif(self.battlePhase == 0):
-                        phase = 'Even'
-                        roundmessage += "##**Phase - {}** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 1
-                        defendcas += 1
-                elif(self.battlePhase == -1):
-                        phase = 'Attacker Losing'
-                        roundmessage += "##**Phase - {}** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 2
-                        defendcas += 0.5
-                elif(self.battlePhase == -2):
-                        phase = 'Attacker Breaking'
-                        roundmessage += "##**Phase - {}** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        attackcas += 4
-                        defendcas += 0.25
-                elif(self.battlePhase <= -3):
-                        phase = 'Attacker Routing'
-                        roundmessage += "##**Phase - Attacker Routing** \n \n".format(phase)
-                        roundmessage += "--- \n \n"
-                        defendcas += 0
-                        if(Globals.battleType == "Naval"):
-                                attackcas += 8
-                                print("Navy")
-                        else:
-                                attackcas += 25
-
-                #never happened in the sims but just in case casualties reach 100% or higher
-                            
-                if(attackcas >= 100):
-                        attackcas = 100
-                        army1.continueFighting = False
-                        roundmessage += "{} eliminates all the {} troops, completely destroying the army.\n \n \n".format(army2.name,army1.name)
-                        roundmessage += "**Winner: {}**\n \n".format(army2.name)
-                        roundmessage += "Rounds taken: {} \n \n".format(roundCount)
-                if(defendcas >= 100):
-                        defendcas = 100
-                        army2.continueFighting = False
-                        roundmessage += "{} eliminates all the {} troops, completely destroying the army.\n \n \n".format(army1.name,army2.name)
-                        roundmessage += "**Winner: {}**\n \n".format(army1.name)
-                        roundmessage += "Rounds taken: {} \n \n".format(roundCount)
+                roundmessage += "*The morales of the armies currently stand as the following\n \n"
+                roundmessage += "**{}** Morale: {} \n \n".format(army1.name,army1.morale)
+                roundmessage += "**{}** Morale: {} \n \n".format(army2.name,army2.morale)
+                roundmessage += "--- \n \n"                        
+                roundmessage += "Rounds taken: {} \n \n".format(roundCount)
                         
                 return roundmessage
         
