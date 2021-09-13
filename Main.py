@@ -15,6 +15,7 @@ reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
                      username=os.environ['REDDIT_USER']
 )
 
+print("---\n")
 
 with open("comments_replied_to.txt", "r") as f:
     comments_replied_to = f.read()
@@ -175,7 +176,6 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                Globals.battleType = "Null"
                 duelInfo = re.match("(.*) ([\+\-]?\d+)(.*)\n+(.*) ([\+\-]?\d+)(.*)",comment.body)
                 if(duelInfo):
                     print ("Running Live Duel\n")
