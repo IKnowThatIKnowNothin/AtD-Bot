@@ -135,7 +135,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                         
             elif(re.search("Land Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Land"
-                battleInfo = re.match("(.*) ([\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
+                battleInfo = re.match("(.*) ([\-]?\d*) (.*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d*) (.*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
                 if(battleInfo):
                     print ("Running Land battle\n")
                     battle = Battle.Battle()
