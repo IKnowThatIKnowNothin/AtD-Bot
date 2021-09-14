@@ -144,9 +144,9 @@ class Battle:
   
                 print("Hi ,", battleInfo.group(9), "h")
 
-                if(battleInfo.group(3) == "Skilled"):
+                if(battleInfo.group(3) == " Skilled"):
                         army1.morale += 5
-                if(battleInfo.group(9) == "Skilled"):
+                if(battleInfo.group(9) == " Skilled"):
                         army2.morale += 5
 
                 if(army1.power == 0):
