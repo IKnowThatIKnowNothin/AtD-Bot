@@ -71,8 +71,9 @@ class Battle:
                                         gap = roll1 - roll2                                       
                                         army2.morale -= gap
                                         
-                                                                               
-                                        if(army2.morale <= 0 or army2.morale <= (100 - army2.threshold)):
+                                        check = 100 - army1.threshold
+                                        print(check)                                      
+                                        if(army2.morale <= 0 or army2.morale <= check):
                                                 #Attacker Won
                                                 #Logs that the army cannot fight, bringing the battle to an end.
                                                 army2.continueFighting = False
@@ -85,8 +86,9 @@ class Battle:
                                         gap = roll2 - roll1                                       
                                         army1.morale -= gap
                                          
-                                        
-                                        if(army1.morale <= 0 or army1.morale <= (100 - army1.threshold)):
+                                        check = 100 - army1.threshold
+                                        print(check)
+                                        if(army1.morale <= 0 or army1.morale <= check):
                                                  #Defender Won
                                                 army1.continueFighting = False
                                                 roundmessage += "{} defeats {}, bringing an end to the battle.\n \n \n".format(army2.name,army1.name)
