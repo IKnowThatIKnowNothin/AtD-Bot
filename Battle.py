@@ -4,11 +4,11 @@ import Army
 import Globals
 class Battle:
         
-        battlePhase = 0
+       
         Globals.message = 1
 
         def run_round(self,army1,army2,roundCount):
-                phase = 'Even'
+               
                 
                 roundmessage = "##**Round {}** \n \n".format(roundCount)
               
@@ -102,7 +102,7 @@ class Battle:
                 roundmessage += "**{}** Morale: {} \n \n".format(army1.name,army1.morale)
                 roundmessage += "**{}** Morale: {} \n \n".format(army2.name,army2.morale)
                 roundmessage += "--- \n \n"                        
-                roundmessage += "Rounds taken: {} \n \n".format(roundCount)
+                
                         
                 return roundmessage
         
@@ -114,7 +114,7 @@ class Battle:
                         
 
         def run(self,battleInfo):
-                roundCount = 0
+                roundCount = 1
                 global attackcas
                 global defendcas
                 attackcas = 0
