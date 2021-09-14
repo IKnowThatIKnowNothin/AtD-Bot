@@ -142,7 +142,7 @@ class Battle:
                 army1 = Army.Army(battleInfo.group(1), int(group2), battleInfo.group(4), int(battleInfo.group(5)), int(group6))
                 army2 = Army.Army(battleInfo.group(7), int(group8), battleInfo.group(10), int(battleInfo.group(11)), int(group12))
   
-                print("Hi ,", battleInfo.group(9))
+                print("Hi ,", battleInfo.group(9), "h")
 
                 if(battleInfo.group(3) == "Skilled"):
                         army1.morale += 5
