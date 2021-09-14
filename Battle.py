@@ -125,22 +125,22 @@ class Battle:
                         group2 = battleInfo.group(2)
                 else:
                         group2 = 0
-                if(battleInfo.group(5)):
-                        group5 = battleInfo.group(5)
+                if(battleInfo.group(6)):
+                        group6 = battleInfo.group(6)
                 else:
-                        group5 = 0
-                if(battleInfo.group(7)):
-                        group7 = battleInfo.group(7)
+                        group6 = 0
+                if(battleInfo.group(8)):
+                        group8 = battleInfo.group(8)
                 else:
-                        group7 = 0
-                if(battleInfo.group(9)):
-                        group10 = battleInfo.group(10)
+                        group8 = 0
+                if(battleInfo.group(12)):
+                        group12 = battleInfo.group(12)
                 else:
-                        group10 = 0
+                        group12 = 0
                 
                 
-                army1 = Army.Army(battleInfo.group(1), int(group2), battleInfo.group(3), int(battleInfo.group(4)), int(group5))
-                army2 = Army.Army(battleInfo.group(6), int(group7), battleInfo.group(8), int(battleInfo.group(9)), int(group10))
+                army1 = Army.Army(battleInfo.group(1), int(group2), battleInfo.group(4), int(battleInfo.group(5)), int(group6))
+                army2 = Army.Army(battleInfo.group(7), int(group8), battleInfo.group(10), int(battleInfo.group(11)), int(group12))
 
 
                 if(army1.power == 0):
