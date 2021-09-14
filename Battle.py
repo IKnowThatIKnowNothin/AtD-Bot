@@ -72,7 +72,7 @@ class Battle:
                                         army2.morale -= gap
                                         
                                                                                
-                                        if(army2.morale <= 0):
+                                        if(army2.morale <= 0 or army2.morale <= 100 - army2.threshold):
                                                 #Attacker Won
                                                 #Logs that the army cannot fight, bringing the battle to an end.
                                                 army2.continueFighting = False
@@ -86,7 +86,7 @@ class Battle:
                                         army1.morale -= gap
                                          
                                         
-                                        if(army1.morale <= 0):
+                                        if(army1.morale <= 0 or army1.morale <= 100 - army1.threshold):
                                                  #Defender Won
                                                 army1.continueFighting = False
                                                 roundmessage += "{} defeats {}, bringing an end to the battle.\n \n \n".format(army2.name,army1.name)
