@@ -3,7 +3,7 @@ import random
 class Army:
 
         commanderName = ""
-        threshold = 0
+        commanderBonus = 0
         name = ""
         power = 0
         bonus = 0
@@ -15,7 +15,7 @@ class Army:
                 else:
                         self.commanderName = commanderName
                         
-                self.threshold = threshold
+                self.commanderBonus = commanderBonus
                 self.name = name
                 self.power = power
                 self.armyBonus = bonus
