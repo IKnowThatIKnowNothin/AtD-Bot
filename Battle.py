@@ -22,7 +22,7 @@ class Battle:
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):     
-                            printed = random.randint(1,5)
+                            printed = random.randint(1,20)
                             printedBonus += printed
                             if (noDice - number == 1):
                                 runningBonus += "{})".format(printed)
@@ -47,7 +47,7 @@ class Battle:
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):     
-                            printed = random.randint(1,5)
+                            printed = random.randint(1,20)
                             printedBonus += printed
                             if (noDice - number == 1):
                                 runningBonus += "{})".format(printed)
@@ -435,31 +435,31 @@ class Battle:
 
                         battlemessage += "#**Casualties** \n \n".format(army1.name,army2.name)
                         if (Globals.battleType == "Naval"):
-                                if(100 - army1.morale <= 0):
+                                if(100 - army1.morale >= 100):
                                         attackcas += 50
                                         for x in range(6):
                                                 attackcas += self.numberGen(7)
-                                elif(100 - army1.morale <= 76):
+                                elif(100 - army1.morale >= 76):
                                         attackcas += 35
                                         for x in range(3):
                                                 attackcas += self.numberGen(5)
-                                elif(100 - army1.morale <= 61):
+                                elif(100 - army1.morale >= 61):
                                         attackcas += 25
                                         for x in range(3):
                                                 attackcas += self.numberGen(5)
-                                elif(100 - army1.morale <= 45):
+                                elif(100 - army1.morale >= 45):
                                         attackcas += 20
                                         for x in range(2):
                                                 attackcas += self.numberGen(2)
-                                elif(100 - army1.morale <= 31):
+                                elif(100 - army1.morale >= 31):
                                         attackcas += 12
                                         for x in range(1):
                                                 attackcas += self.numberGen(8)
-                                elif(100 - army1.morale <= 16):
+                                elif(100 - army1.morale >= 16):
                                         attackcas += 8
                                         for x in range(1):
                                                 attackcas += self.numberGen(4)
-                                elif(100 - army1.morale <= 6):
+                                elif(100 - army1.morale >= 6):
                                         attackcas += 4
                                         for x in range(1):
                                                 attackcas += self.numberGen(3)
@@ -468,31 +468,31 @@ class Battle:
                                         for x in range(1):
                                                 attackcas += self.numberGen(2)
                                                 
-                                if(100 - army2.morale <= 0):
+                                if(100 - army2.morale >= 100):
                                         defendcas += 50
                                         for x in range(6):
                                                 defendcas += self.numberGen(7)
-                                elif(100 - army2.morale <= 76):
+                                elif(100 - army2.morale >= 76):
                                         defendcas += 35
                                         for x in range(3):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 61):
+                                elif(100 - army2.morale >= 61):
                                         defendcas += 25
                                         for x in range(3):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 45):
+                                elif(100 - army2.morale >= 45):
                                         defendcas += 20
                                         for x in range(2):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 31):
+                                elif(100 - army2.morale >= 31):
                                         defendcas += 12
                                         for x in range(1):
                                                 defendcas += self.numberGen(8)
-                                elif(100 - army2.morale <= 16):
+                                elif(100 - army2.morale >= 16):
                                         defendcas += 8
                                         for x in range(1):
                                                 defendcas += self.numberGen(4)
-                                elif(100 - army2.morale <= 6):
+                                elif(100 - army2.morale >= 6):
                                         defendcas += 4
                                         for x in range(1):
                                                 defendcas += self.numberGen(3)
@@ -503,31 +503,31 @@ class Battle:
                                                 
                         #Land Battle casualties          
                         else:
-                                if(100 - army1.morale <= 0):
+                                if(100 - army1.morale >= 100):
                                         attackcas += 35
                                         for x in range(3):
                                                 attackcas += self.numberGen(5)
-                                elif(100 - army1.morale <= 76):
+                                elif(100 - army1.morale >= 76):
                                         attackcas += 30
                                         for x in range(3):
                                                 attackcas += self.numberGen(5)
-                                elif(100 - army1.morale <= 61):
+                                elif(100 - army1.morale >= 61):
                                         attackcas += 20
                                         for x in range(2):
                                                 attackcas += self.numberGen(5)
-                                elif(100 - army1.morale <= 45):
+                                elif(100 - army1.morale >= 45):
                                         attackcas += 12
                                         for x in range(1):
                                                 attackcas += self.numberGen(8)
-                                elif(100 - army1.morale <= 31):
+                                elif(100 - army1.morale >= 31):
                                         attackcas += 8
                                         for x in range(1):
                                                 attackcas += self.numberGen(4)
-                                elif(100 - army1.morale <= 16):
+                                elif(100 - army1.morale >= 16):
                                         attackcas += 5
                                         for x in range(1):
                                                 attackcas += self.numberGen(3)
-                                elif(100 - army1.morale <= 6):
+                                elif(100 - army1.morale >= 6):
                                         attackcas += 3
                                         for x in range(1):
                                                 attackcas += self.numberGen(2)
@@ -535,31 +535,31 @@ class Battle:
                                         for x in range(1):
                                                 attackcas += self.numberGen(3)
                                                 
-                                if(100 - army2.morale <= 0):
+                                if(100 - army2.morale >= 100):
                                         defendcas += 35
                                         for x in range(3):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 76):
+                                elif(100 - army2.morale >= 76):
                                         defendcas += 30
                                         for x in range(3):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 61):
+                                elif(100 - army2.morale >= 61):
                                         defendcas += 20
                                         for x in range(2):
                                                 defendcas += self.numberGen(5)
-                                elif(100 - army2.morale <= 45):
+                                elif(100 - army2.morale >= 45):
                                         defendcas += 12
                                         for x in range(1):
                                                 defendcas += self.numberGen(8)
-                                elif(100 - army2.morale <= 31):
+                                elif(100 - army2.morale >= 31):
                                         defendcas += 8
                                         for x in range(1):
                                                 defendcas += self.numberGen(4)
-                                elif(100 - army2.morale <= 16):
+                                elif(100 - army2.morale >= 16):
                                         defendcas += 5
                                         for x in range(1):
                                                 defendcas += self.numberGen(3)
-                                elif(100 - army2.morale <= 6):
+                                elif(100 - army2.morale >= 6):
                                         defendcas += 3
                                         for x in range(1):
                                                 defendcas += self.numberGen(2)
@@ -576,4 +576,4 @@ class Battle:
                 self.reset_battle_phase()
                 
         def reset_battle_phase(self):
-                self.battlePhase = 0
+               print("Reset")
