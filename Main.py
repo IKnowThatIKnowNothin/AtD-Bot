@@ -81,7 +81,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
               
                 else:
                     print ("Improperly formatted roll\n---\n")
-                    comment.reply("Improperly formatted Roll. Please format comment as follows: \n \n 1d100 \n \n Roll \n \n tag ModBotShit")
+                    comment.reply("Improperly formatted Roll.")
                     with open("comments_replied_to.txt", "w") as f:
                         for comment_id in comments_replied_to:
                             f.write(comment_id + "\n")
@@ -124,7 +124,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
-                    comment.reply("Improperly formatted battle info. Please format comment as follows: \n \nCommanderName + CommanderBonus\n \nAttackerName AttackerStrength +AttackerBonus \n \nCommanderName + CommanderBonus\n \nDefenderName DefenderStrength +DefenderBonus\n \nDramatic Mode (optional) \n \ntag ManyFacedBot")
+                    comment.reply("Improperly formatted battle info.")
                     with open("comments_replied_to.txt", "w") as f:
                         for comment_id in comments_replied_to:
                             f.write(comment_id + "\n")
@@ -168,7 +168,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
-                    comment.reply("Improperly formatted battle info. Please format comment as follows: \n \nCommanderName + CommanderBonus\n \nAttackerName AttackerStrength +AttackerBonus \n \nCommanderName + CommanderBonus\n \nDefenderName DefenderStrength +DefenderBonus\n \nDramatic Mode (optional) \n \ntag ManyFacedBot")
+                    comment.reply("Improperly formatted battle info.")
                     with open("comments_replied_to.txt", "w") as f:
                         for comment_id in comments_replied_to:
                             f.write(comment_id + "\n")
@@ -227,7 +227,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
                 
             else:
-                comment.reply("Improperly formatted info. Please state which function you wish to use; Roll, Land Battle, Naval Battle, Ambush, Assault, Boxing, Live Duel, or Blunted Duel")
+                comment.reply("Improperly formatted info. Please state which function you wish to use.")
                 print("Improperly formatted info\n---\n")
 
     except praw.exceptions.ClientException:  # fix for deleted comments
