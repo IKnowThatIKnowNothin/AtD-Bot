@@ -3,6 +3,7 @@ import os
 import re
 import Battle
 #import Duel
+import Joust
 import time
 import Army
 import random
@@ -173,7 +174,52 @@ for comment in subreddit.stream.comments(skip_existing=True):
                         for comment_id in comments_replied_to:
                             f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
-                
+           
+          elif(re.search("Joust",comment.body,re.IGNORECASE)):
+                Globals.battleType = "Joust"
+                joustInfo = re.match("(.*) ([\+\-]?\d*)\n+(.*) ([\+\-]?\d*)",comment.body)
+                if(joustInfo):
+                    print ("Running Joust\n")
+                    joust = Joust.Joust()
+                    if(re.search("Dramatic Mode",comment.body,re.IGNORECASE)):
+                        print ("Dramatic Mode\n")
+                        Globals.resultsMode = False
+                        lastcomment = comment
+                        comments_replied_to.append(lastcomment.id)
+                        for roundCount in joust.run(joustInfo).split("---"):
+                            try:
+                                lastcomment = lastcomment.reply(roundCount)
+                                comments_replied_to.append(lastcomment.id)
+                                with open("comments_replied_to.txt", "w") as f:
+                                    for comment_id in comments_replied_to:
+                                        f.write(comment_id + "\n")
+                            except: #Shouldn't happen too much, but in case we get rate limited.
+                                print("Rate limited. Sleeping for 6 minutes.")
+                                time.sleep(360)
+                                lastcomment = lastcomment.reply(roundCount)
+                                comments_replied_to.append(lastcomment.id)
+                                with open("comments_replied_to.txt", "w") as f:
+                                    for comment_id in comments_replied_to:
+                                        f.write(comment_id + "\n")
+                            time.sleep(30)
+                        
+                    else:
+                        Globals.resultsMode = False
+                        print ("Quick Mode\n")
+                        comment.reply(joust.run(joustInfo))#Post all at once
+                        with open("comments_replied_to.txt", "w") as f:
+                            for comment_id in comments_replied_to:
+                                f.write(comment_id + "\n")
+
+                    print("--- \n")
+                else:
+                    print ("Improperly formatted battle\n---\n")
+                    comment.reply("Improperly formatted battle info.")
+                    with open("comments_replied_to.txt", "w") as f:
+                        for comment_id in comments_replied_to:
+                            f.write(comment_id + "\n")
+                time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough.
+
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
                 duelInfo = re.match("(.*) ([\+\-]?\d+)(.*)\n+(.*) ([\+\-]?\d+)(.*)",comment.body)
