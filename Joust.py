@@ -127,6 +127,7 @@ class Joust:
                 jouster1 = Jouster.Jouster(joustInfo.group(1), int(group2))
                 jouster2 = Jouster.Jouster(joustInfo.group(3), int(group4))
                 battlemessage = "#Joust Between {} and {} \n \n".format(jouster1.name,jouster2.name)
+                roundmessage = "This bot uses the joust mechanics found here [here](https://docs.google.com/document/d/1_q10VTMk5Gu1VLN0S-_FfdotP0gE4VgfHKfM5YAqVOw/) \n \n".format(roundCount+1)
                 battlemessage += "--- \n \n"
                 notbattlemessage = ""
                 roundOver = True
