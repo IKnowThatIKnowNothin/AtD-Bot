@@ -28,7 +28,7 @@ class Joust:
                         
                         if(difference >= 18):
                                 jouster2.continueFighting = False
-                                jouster2.injury_roll()
+                                jouster2.death_roll()
                                 roundmessage += "{} manages to unhorse their opponent, injuring them and bringing an end to the joust.\n \n".format(jouster1.name)
                                 
                         elif(difference >= 15):
@@ -64,7 +64,7 @@ class Joust:
                        
                         if(difference >= 18):
                                 jouster1.continueFighting = False
-                                jouster1.injury_roll()
+                                jouster1.death_roll()
                                 roundmessage += "{} manages to unhorse their opponent, injuring them and bringing an end to the joust.\n \n".format(jouster2.name)
                                 
                         elif(difference >= 15):
@@ -165,49 +165,22 @@ class Joust:
                         battlemessage += "{} is killed in the joust.\n\n".format(jouster1.name)
                 elif(jouster2.alive == False):
                         battlemessage += "{} is killed in the joust.\n\n".format(jouster2.name)
-                else:
+                
+                if(jouster1.minorInjuries >= 1):
+                        battlemessage += "{} is moderately injured in the joust.\n\n".format(jouster1.name)
+                elif(jouster2.minorInjuries >= 1):
+                        battlemessage += "{} is moderately injured in the joust.\n\n".format(jouster2.name)
                         
-                        if(jouster1.injuryRoll != 0):
-                                if(jouster1.permanentInjuries != "None"):
-                                        if(jouster1.permanentInjuries == "Hand"):
-                                                battlemessage += "{} suffers a permanent injury and loses a hand/arm in the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Foot"):
-                                                battlemessage += "{} suffers a permanent injury and loses a leg/foot in the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Blinded"):
-                                                battlemessage += "{} suffers a permanent injury and is permanently blinded in one eye from the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Deafened"):
-                                                battlemessage += "{} suffers a permanent injury and is partially/fully loses their hearing from the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Internal"):
-                                                battlemessage += "{} suffers a permanent injury and suffers internal organ damage from the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Scar"):
-                                                battlemessage += "{} suffers a permanent injury and gets intensely scarred from the joust.\n\n".format(jouster1.name)
-                                        elif(jouster1.permanentInjuries == "Genital"):
-                                                battlemessage += "{} suffers a permanent injury and suffers a genital wound from the joust.\n\n".format(jouster1.name)
-                                else:
-                                        battlemessage += "{} emerges from the joust with {} major, {} moderate and {} minor injuries.\n\n".format(jouster1.name,jouster1.majorInjuries,jouster1.moderateInjuries,jouster1.minorInjuries)
-
-                        elif(jouster2.injuryRoll != 0):
-                                if(jouster2.permanentInjuries != "None"):
-                                        if(jouster2.permanentInjuries == "Hand"):
-                                                battlemessage += "{} suffers a permanent injury and loses a hand/arm in the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Foot"):
-                                                battlemessage += "{} suffers a permanent injury and loses a leg/foot in the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Blinded"):
-                                                battlemessage += "{} suffers a permanent injury and is permanently blinded in one eye from the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Deafened"):
-                                                battlemessage += "{} suffers a permanent injury and is partially/fully loses their hearing from the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Internal"):
-                                                battlemessage += "{} suffers a permanent injury and suffers internal organ damage from the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Scar"):
-                                                battlemessage += "{} suffers a permanent injury and gets intensely scarred from the joust.\n\n".format(jouster2.name)
-                                        elif(jouster2.permanentInjuries == "Genital"):
-                                                battlemessage += "{} suffers a permanent injury and suffers a genital wound from the joust.\n\n".format(jouster2.name)
-                                else:
-                                        battlemessage += "{} emerges from the joust with {} major, {} moderate and {} minor injuries.\n\n".format(jouster2.name,jouster2.majorInjuries,jouster2.moderateInjuries,jouster2.minorInjuries)
+                if(jouster1.moderateInjuries >= 1):
+                        battlemessage += "{} is seriously injured in the joust.\n\n".format(jouster1.name)
+                elif(jouster2.moderateInjuries >= 1):
+                        battlemessage += "{} is seriously injured in the joust.\n\n".format(jouster2.name)
                         
-
-
-                        
+                if(jouster1.majorInjuries >= 1):
+                        battlemessage += "{} is maimed in the joust.\n\n".format(jouster1.name)
+                elif(jouster2.majorInjuries >= 1):
+                        battlemessage += "{} is maimed in the joust.\n\n".format(jouster2.name)
+                          
                 ##reset_duel_phase()
                 self.joustPhase = 0
                 return battlemessage
