@@ -12,13 +12,21 @@ class Joust:
         def run_round(self,jouster1,jouster2,roundCount):
                 
                 roundmessage = "##**Tilt {}** \n \n".format(roundCount+1)
-                roll1 = jouster1.attack_roll()
-                roll2 = jouster2.attack_roll()
+                r1_1 = jouster1.attack_roll()
+                r1_2 = jouster1.attack_roll()
+                r1_3 = jouster1.attack_roll()
+                r2_1 = jouster2.attack_roll()
+                r2_2 = jouster2.attack_roll()
+                r2_3 = jouster2.attack_roll()
+                roll1 = r1_1 + r1_2 + r1_3 + jouster1.bonus
+                roll2 = r2_1 + r2_2 + r2_3 + jouster2.bonus
                 unmodded1 = roll1-jouster1.bonus
                 unmodded2 = roll2-jouster2.bonus
                 roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(jouster1.name,roll1,unmodded1,jouster1.bonus)
+                roundmessage += "({} + {} + {}) + {} \n\n".format(r1_1,r1_2,r1_3,jouster1.bonus)
                 roundmessage += "--- \n \n"
                 roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(jouster2.name,roll2,unmodded2,jouster2.bonus)
+                roundmessage += "({} + {} + {}) + {} \n\n".format(r2_1,r2_2,r2_3,jouster2.bonus)
                 roundmessage += "--- \n \n"
 
                 if(roll1 > roll2):
@@ -26,72 +34,55 @@ class Joust:
                         unmoddedDiff = unmodded1-unmodded2
 
                         
-                        if(difference >= 18):
+                        if(difference >= 25):
                                 jouster2.continueFighting = False
                                 jouster2.death_roll()
-                                roundmessage += "{} manages to unhorse their opponent, injuring them and bringing an end to the joust.\n \n".format(jouster1.name)
-                                
-                        elif(difference >= 15):
-                                jouster2.continueFighting = False
                                 roundmessage += "{} manages to unhorse their opponent, bringing an end to the joust.\n \n".format(jouster1.name)
                                 
-                        elif(difference >= 11):
+                        elif(difference >= 16):
                                 jouster1.brokenLances += 1
-                                jouster1.bonus += 3
+                                jouster1.bonus += 7
                                 if (jouster1.brokenLances >= 3):
                                         jouster2.continueFighting = False
                                         roundmessage += "{} breaks their final lance against {}, bringing an end to the joust.\n\n".format(jouster1.name,jouster2.name)
-                                elif(jouster1.brokenLances >= 2):
-                                        roundmessage += "{} breaks their second lance against {} \n\n".format(jouster1.name,jouster2.name)
                                 else:
-                                        roundmessage += "{} breaks their first lance against {} \n\n".format(jouster1.name,jouster2.name)
+                                        roundmessage += "{} breaks their  lance against {} \n\n".format(jouster1.name,jouster2.name)
 
-                        elif(difference >= 7):
-                                jouster1.bonus += 2
+                        elif(difference >= 6):
+                                jouster1.bonus += 3
                                 roundmessage += "{} lands a strong hit on their opponent.\n \n".format(jouster1.name)
                                 
-                        elif(difference >= 3):
-                                jouster1.bonus += 1
-                                roundmessage += "{} lands a hit on their opponent.\n \n".format(jouster1.name)
                                                 
                         else:
-                                roundmessage += "Neither side land a hit on their opponent.\n \n"
+                                roundmessage += "Neither side land a proper hit on their opponent.\n \n"
 
                 else:
                         difference = roll2-roll1
                         unmoddedDiff = unmodded2-unmodded1
                       
                        
-                        if(difference >= 18):
+                        if(difference >= 25):
                                 jouster1.continueFighting = False
                                 jouster1.death_roll()
-                                roundmessage += "{} manages to unhorse their opponent, injuring them and bringing an end to the joust.\n \n".format(jouster2.name)
-                                
-                        elif(difference >= 15):
-                                jouster1.continueFighting = False
                                 roundmessage += "{} manages to unhorse their opponent, bringing an end to the joust.\n \n".format(jouster2.name)
+
                                   
-                        elif(difference >= 11):
+                        elif(difference >= 16):
                                 jouster2.brokenLances += 1
-                                jouster2.bonus += 3
+                                jouster2.bonus += 7
                                 if (jouster2.brokenLances >= 3):
                                         jouster1.continueFighting = False
                                         roundmessage += "{} breaks their final lance against {}, bringing an end to the joust.\n\n".format(jouster2.name,jouster1.name)
-                                elif(jouster2.brokenLances >= 2):
-                                        roundmessage += "{} breaks their second lance against {} \n\n".format(jouster2.name,jouster1.name)
                                 else:
-                                        roundmessage += "{} breaks their first lance against {} \n\n".format(jouster2.name,jouster1.name)
+                                        roundmessage += "{} breaks their lance against {} \n\n".format(jouster2.name,jouster1.name)
                       
-                        elif(difference >= 7):
-                                jouster2.bonus += 2
+                        elif(difference >= 6):
+                                jouster2.bonus += 3
                                 roundmessage += "{} lands a strong hit on their opponent.\n \n".format(jouster2.name)
-                                
-                        elif(difference >= 3):
-                                jouster2.bonus += 1
-                                roundmessage += "{} lands a hit on their opponent.\n \n".format(jouster2.name)
+
                                                 
                         else:
-                                roundmessage += "Neither side land a hit on their opponent.\n \n"
+                                roundmessage += "Neither side land a proper hit on their opponent.\n \n"
                                                                                           
                                                                                                             
 
@@ -127,7 +118,7 @@ class Joust:
                 jouster1 = Jouster.Jouster(joustInfo.group(1), int(group2))
                 jouster2 = Jouster.Jouster(joustInfo.group(3), int(group4))
                 battlemessage = "#Joust Between {} and {} \n \n".format(jouster1.name,jouster2.name)
-                roundmessage = "This bot uses the joust mechanics found here [here](https://docs.google.com/document/d/1_q10VTMk5Gu1VLN0S-_FfdotP0gE4VgfHKfM5YAqVOw/) \n \n".format(roundCount+1)
+                battlemessage += "This bot uses the joust mechanics found here [here](https://docs.google.com/document/d/1oDmrYNC2CKryBX6ZII3Guq8BHHWAo1zsZo1rFDXTwko/) \n \n"
                 battlemessage += "--- \n \n"
                 notbattlemessage = ""
                 roundOver = True
