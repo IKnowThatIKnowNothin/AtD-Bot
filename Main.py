@@ -9,11 +9,11 @@ import Army
 import random
 import Globals
 
-reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
-                     client_id=os.environ['PRAW_ID'] ,
-                     client_secret=os.environ['PRAW_SECRET'] ,
-                     password=os.environ['REDDIT_PW'] ,
-                     username=os.environ['REDDIT_USER']
+reddit = praw.Reddit(user_agent='ModBotShit' ,
+                     client_id='Bf8rzaoSuBU0-OllXzFGnw' ,
+                     client_secret='1MWDJaxyPByBcEXeK4NUtYbYVuKmnA' ,
+                     password='lkE8$yDaZZ7rjJb9' ,
+                     username='ModBotShit'
 )
 
 print("---\n")
@@ -175,7 +175,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                             f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
            
-          elif(re.search("Joust",comment.body,re.IGNORECASE)):
+            elif(re.search("Joust",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Joust"
                 joustInfo = re.match("(.*) ([\+\-]?\d*)\n+(.*) ([\+\-]?\d*)",comment.body)
                 if(joustInfo):
