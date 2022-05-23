@@ -49,6 +49,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                         runningBonus = "("
             
                         while(noDice != number):     
+                            random.seed()
                             printed = random.randint(1,sizeDice)
                             printedBonus += printed
                             print("Rolling", name, "\n")
