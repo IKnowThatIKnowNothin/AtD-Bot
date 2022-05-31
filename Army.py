@@ -21,4 +21,5 @@ class Army:
                 self.armyBonus = bonus
                 self.bonus = self.armyBonus
         def attack_roll(self):
+                random.seed()
                 return random.randint(1,100) +self.bonus
