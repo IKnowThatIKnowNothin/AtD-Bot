@@ -96,32 +96,11 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 if(battleInfo):
                     print ("Running Naval battle\n")
                     battle = Battle.Battle()
-                    if(re.search("Dramatic Mode",comment.body,re.IGNORECASE)):
-                        print ("Dramatic Mode\n")
-                        lastcomment = comment
-                        comments_replied_to.append(lastcomment.id)
-                        for roundCount in battle.run(battleInfo).split("---"):
-                            try:
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            except: #Shouldn't happen too much, but in case we get rate limited.
-                                print("Rate limited. Sleeping for 6 minutes.")
-                                time.sleep(360)
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            time.sleep(60)
-                    else:
-                        print ("Quick Mode\n")
-                        comment.reply(battle.run(battleInfo))#Post all at once
-                        with open("comments_replied_to.txt", "w") as f:
-                            for comment_id in comments_replied_to:
-                                f.write(comment_id + "\n")
+                    print ("Quick Mode\n")
+                    comment.reply(battle.run(battleInfo))#Post all at once
+                    with open("comments_replied_to.txt", "w") as f:
+                      for comment_id in comments_replied_to:
+                        f.write(comment_id + "\n")
 
                     print("---\n")
                 else:
@@ -141,32 +120,11 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 if(battleInfo):
                     print ("Running Land battle\n")
                     battle = Battle.Battle()
-                    if(re.search("Dramatic Mode",comment.body,re.IGNORECASE)):
-                        print ("Dramatic Mode\n")
-                        lastcomment = comment
-                        comments_replied_to.append(lastcomment.id)
-                        for roundCount in battle.run(battleInfo).split("---"):
-                            try:
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            except: #Shouldn't happen too much, but in case we get rate limited.
-                                print("Rate limited. Sleeping for 6 minutes.")
-                                time.sleep(360)
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            time.sleep(60)
-                    else:
-                        print ("Quick Mode\n")
-                        comment.reply(battle.run(battleInfo))#Post all at once
-                        with open("comments_replied_to.txt", "w") as f:
-                            for comment_id in comments_replied_to:
-                                f.write(comment_id + "\n")
+                    print ("Quick Mode\n")
+                    comment.reply(battle.run(battleInfo))#Post all at once
+                    with open("comments_replied_to.txt", "w") as f:
+                        for comment_id in comments_replied_to:
+                            f.write(comment_id + "\n")
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
@@ -182,35 +140,13 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 if(joustInfo):
                     print ("Running Joust\n")
                     joust = Joust.Joust()
-                    if(re.search("Dramatic Mode",comment.body,re.IGNORECASE)):
-                        print ("Dramatic Mode\n")
-                        Globals.resultsMode = False
-                        lastcomment = comment
-                        comments_replied_to.append(lastcomment.id)
-                        for roundCount in joust.run(joustInfo).split("---"):
-                            try:
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            except: #Shouldn't happen too much, but in case we get rate limited.
-                                print("Rate limited. Sleeping for 6 minutes.")
-                                time.sleep(360)
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            time.sleep(30)
-                        
-                    else:
-                        Globals.resultsMode = False
-                        print ("Quick Mode\n")
-                        comment.reply(joust.run(joustInfo))#Post all at once
-                        with open("comments_replied_to.txt", "w") as f:
-                            for comment_id in comments_replied_to:
-                                f.write(comment_id + "\n")
+                    
+                    Globals.resultsMode = False
+                    print ("Quick Mode\n")
+                    comment.reply(joust.run(joustInfo))#Post all at once
+                    with open("comments_replied_to.txt", "w") as f:
+                        for comment_id in comments_replied_to:
+                            f.write(comment_id + "\n")
 
                     print("--- \n")
                 else:
@@ -227,42 +163,13 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()
-                    if(re.search("Dramatic Mode",comment.body,re.IGNORECASE)):
-                        print ("Dramatic Mode\n")
-                        Globals.resultsMode = False
-                        lastcomment = comment
-                        comments_replied_to.append(lastcomment.id)
-                        for roundCount in duel.run(duelInfo).split("---"):
-                            try:
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            except: #Shouldn't happen too much, but in case we get rate limited.
-                                print("Rate limited. Sleeping for 6 minutes.")
-                                time.sleep(360)
-                                lastcomment = lastcomment.reply(roundCount)
-                                comments_replied_to.append(lastcomment.id)
-                                with open("comments_replied_to.txt", "w") as f:
-                                    for comment_id in comments_replied_to:
-                                        f.write(comment_id + "\n")
-                            time.sleep(30)
-                        
-                    elif(re.search("Results Mode",comment.body,re.IGNORECASE)):
-                        Globals.resultsMode = True
-                        print ("Results Mode\n")
-                        comment.reply(duel.run(duelInfo))#Post all at once
-                        with open("comments_replied_to.txt", "w") as f:
-                            for comment_id in comments_replied_to:
-                                f.write(comment_id + "\n")
-                    else:
-                        Globals.resultsMode = False
-                        print ("Quick Mode\n")
-                        comment.reply(duel.run(duelInfo))#Post all at once
-                        with open("comments_replied_to.txt", "w") as f:
-                            for comment_id in comments_replied_to:
-                                f.write(comment_id + "\n")
+
+                    Globals.resultsMode = False
+                    print ("Quick Mode\n")
+                    comment.reply(duel.run(duelInfo))#Post all at once
+                    with open("comments_replied_to.txt", "w") as f:
+                        for comment_id in comments_replied_to:
+                            f.write(comment_id + "\n")
 
                     print("--- \n")
                 else:
