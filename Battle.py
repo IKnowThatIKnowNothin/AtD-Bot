@@ -21,7 +21,8 @@ class Battle:
                         printedBonus = 0
                         numberBonus = 0
                         runningBonus = "("           
-                        while(noDice != number):     
+                        while(noDice != number):  
+                            random.seed()
                             printed = random.randint(1,20)
                             printedBonus += printed
                             if (noDice - number == 1):
@@ -47,6 +48,7 @@ class Battle:
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):     
+                            random.seed()
                             printed = random.randint(1,20)
                             printedBonus += printed
                             if (noDice - number == 1):
