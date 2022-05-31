@@ -16,10 +16,12 @@ class Jouster:
                 self.name = name
                 self.bonus = bonus
         def attack_roll(self):
+                random.seed()
                 return random.randint(1,20)
         def modify_bonus(self,mod):
                 self.bonus += mod
         def injury_roll(self):
+                random.seed()
                 injuryRoll = random.randint(1,20)
                 if(injuryRoll >= 10):
                         self.minorInjuries += 1
