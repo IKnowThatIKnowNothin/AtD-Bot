@@ -9,11 +9,11 @@ import Army
 import random
 import Globals
 
-reddit = praw.Reddit(user_agent='ModBotShit' ,
-                     client_id='Bf8rzaoSuBU0-OllXzFGnw' ,
-                     client_secret='1MWDJaxyPByBcEXeK4NUtYbYVuKmnA' ,
-                     password='lkE8$yDaZZ7rjJb9' ,
-                     username='ModBotShit'
+reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
+                     client_id=os.environ['PRAW_ID'] ,
+                     client_secret=os.environ['PRAW_SECRET'] ,
+                     password=os.environ['REDDIT_PW'] ,
+                     username=os.environ['REDDIT_USER']
 )
 
 print("---\n")
