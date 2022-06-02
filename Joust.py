@@ -149,8 +149,10 @@ class Joust:
                 
                 if(jouster1.continueFighting):
                         battlemessage += "**Winner: {}**\n \n".format(jouster1.name)
-                else:
+                elif(jouster2.continueFighting):
                         battlemessage += "**Winner: {}**\n \n".format(jouster2.name)
+                else:
+                        battlemessage += "**Draw**\n \n"
                 battlemessage += "Tilts taken: {} \n \n".format(roundCount)
 
                 if(jouster1.alive == False):
