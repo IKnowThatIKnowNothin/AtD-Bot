@@ -147,9 +147,9 @@ class Joust:
                                 battlemessage += "**After seven tilts, the Joust ends in a draw.**\n \n"
                                 battlemessage += "They broke an equal number of lances.\n \n"
                 
-                if(jouster1.continueFighting):
+                if(jouster1.continueFighting and not jouster2.continueFighting):
                         battlemessage += "**Winner: {}**\n \n".format(jouster1.name)
-                elif(jouster2.continueFighting):
+                elif(jouster2.continueFighting and not jouster1.continueFighting):
                         battlemessage += "**Winner: {}**\n \n".format(jouster2.name)
                 else:
                         battlemessage += "**Draw**\n \n"
