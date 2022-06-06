@@ -59,7 +59,7 @@ class Jouster:
                                 self.alive = False
                                 return 0
                         else:
-                                return 0
+                                return injuryRoll
                 else:
                         self.continueFighting = False
                         self.ableToFight = False
