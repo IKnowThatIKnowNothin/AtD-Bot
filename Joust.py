@@ -7,6 +7,7 @@ class Joust:
         joustPhase = 0
         phaseDifference = 0
         Globals.message = 1
+        Globals.injuryRoll = 0
         
         
         def run_round(self,jouster1,jouster2,roundCount):
