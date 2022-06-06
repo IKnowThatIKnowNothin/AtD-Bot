@@ -7,7 +7,7 @@ class Joust:
         joustPhase = 0
         phaseDifference = 0
         Globals.message = 1
-        Globals.injuryRoll = 0
+       
         
         
         def run_round(self,jouster1,jouster2,roundCount):
@@ -104,6 +104,7 @@ class Joust:
         
         def run(self,joustInfo):
                 roundCount = 0
+                injuryRoll = 0
                 
                 if(joustInfo.group(2)):
                         group2 = joustInfo.group(2)
@@ -171,8 +172,10 @@ class Joust:
                         
                 elif(jouster1.majorInjuries >= 1):
                         battlemessage += "{} is maimed in the joust.\n\n".format(jouster1.name)
+                        injuryRoll = random.randint(2,10)
                 elif(jouster2.majorInjuries >= 1):
                         battlemessage += "{} is maimed in the joust.\n\n".format(jouster2.name)
+                        injuryRoll = random.randint(2,10)
                         
                 if(injuryRoll == 2):
                         battlemessage += "They suffer permanent brain damage.\n\n"
