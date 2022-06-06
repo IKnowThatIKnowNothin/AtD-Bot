@@ -150,8 +150,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
 
                     print("--- \n")
                 else:
-                    print ("Improperly formatted battle\n---\n")
-                    comment.reply("Improperly formatted battle info.")
+                    print ("Improperly formatted joust\n---\n")
+                    comment.reply("Improperly formatted joust info.")
                     with open("comments_replied_to.txt", "w") as f:
                         for comment_id in comments_replied_to:
                             f.write(comment_id + "\n")
