@@ -220,8 +220,8 @@ class Battle:
                         elif(difference <= 600):
                                 army1.bonus += 30
                         else:
-                                autosurrender = 2
-
+                                #autosurrender = 2
+                                print("")
                 elif(army2.power > army1.power and Globals.battleType == "Naval"):
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
@@ -287,7 +287,8 @@ class Battle:
                         elif(difference <= 600):
                                 army2.bonus += 30
                         else:
-                                autosurrender = 1
+                                #autosurrender = 1
+                                print("")
                 elif(army1.power > army2.power and Globals.battleType != "Naval"):
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
