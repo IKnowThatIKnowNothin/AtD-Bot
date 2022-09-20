@@ -217,9 +217,8 @@ class Battle:
                                 army1.bonus += 28
                         elif(difference <= 580):
                                 army1.bonus += 29
-                        elif(difference <= 600):
-                                army1.bonus += 30
                         else:
+                                army1.bonus += 30
                                 #autosurrender = 2
                                 print("")
                 elif(army2.power > army1.power and Globals.battleType == "Naval"):
@@ -284,9 +283,8 @@ class Battle:
                                 army2.bonus += 28
                         elif(difference <= 580):
                                 army2.bonus += 29
-                        elif(difference <= 600):
-                                army2.bonus += 30
                         else:
+                                army2.bonus += 30
                                 #autosurrender = 1
                                 print("")
                 elif(army1.power > army2.power and Globals.battleType != "Naval"):
@@ -351,9 +349,8 @@ class Battle:
                                 army1.bonus += 28
                         elif(difference <= 580):
                                 army1.bonus += 29
-                        elif(difference <= 600):
-                                army1.bonus += 30
                         else:
+                                army1.bonus += 30
                                 #autosurrender = 2
                                 print("")
                 elif(army2.power > army1.power and Globals.battleType != "Naval"):
@@ -418,10 +415,9 @@ class Battle:
                                 army2.bonus += 28
                         elif(difference <= 580):
                                 army2.bonus += 29
-                        elif(difference <= 600):
-                                army2.bonus += 30
                         else:
-                                autosurrender = 1
+                                army2.bonus += 30
+                                #autosurrender = 1
 
                 
                 if(Globals.battleType == "Naval"):
