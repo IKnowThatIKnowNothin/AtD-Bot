@@ -76,11 +76,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                               roundmessage += "{}d{} {}: **{}**".format(noDice,sizeDice,name,printedBonus)
                               roundmessage += "\n\n *** \n\n"
 
-                    comment.reply(roundmessage)#Post all at once
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
-                    print("---\n")
+                  comment.reply(roundmessage)#Post all at once
+                  print("---\n")
               
                 else:
                     print ("Improperly formatted roll\n---\n")
