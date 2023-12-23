@@ -79,12 +79,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                   comment.reply(roundmessage)#Post all at once
                   print("---\n")
               
-                  else:
-                    print ("Improperly formatted roll\n---\n")
-                    comment.reply("Improperly formatted Roll.")
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
+        
               except:
                 print ("Improperly formatted roll\n---\n")
                 comment.reply("Improperly formatted Roll.")
