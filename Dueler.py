@@ -1,4 +1,4 @@
-timport re
+import re
 import random
 
 class Dueler:
