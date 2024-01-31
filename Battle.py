@@ -146,10 +146,24 @@ class Battle:
   
                 print("Hi ,", battleInfo.group(9), "h")
 
-                if(battleInfo.group(3) == " Inspiring"):
+                global extramorale1
+                extramorale1 = 0
+                global extramorale2
+                extramorale2 = 0
+
+                if(battleInfo.group(3) == " Inspiring1"):
                         army1.morale += 5
-                if(battleInfo.group(9) == " Inspiring"):
+                elif(battleInfo.group(3) == " Inspiring2"):
+                        army1.morale += 10
+                elif(battleInfo.group(3) == " Inspiring3"):
+                        army1.morale += 15
+                        
+                if(battleInfo.group(9) == " Inspiring1"):
                         army2.morale += 5
+                if(battleInfo.group(9) == " Inspiring2"):
+                        army2.morale += 10
+                if(battleInfo.group(9) == " Inspiring3"):
+                        army2.morale += 15
 
                 if(army1.power == 0):
                         autosurrender = 1
