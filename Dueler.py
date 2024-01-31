@@ -3,7 +3,7 @@ import random
 
 class Dueler:
 
-        duelerName = ""
+        name = ""
         threshold = 0
         bonus = 0
 	extradmg = 0
@@ -13,9 +13,9 @@ class Dueler:
 	tier3 = 0 #1 is Duellist, 2 is Iron Will, 3 is Bulwark
 	
 	
-        def __init__(self,duelerName,threshold,bonus):
+        def __init__(self,name,threshold,bonus):
 
-                self.duelerName = duelerName  
+                self.name = name  
                 self.threshold = threshold
                 self.bonus = bonus
 
