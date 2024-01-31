@@ -94,17 +94,11 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     battle = Battle.Battle()
                     print ("Quick Mode\n")
                     comment.reply(battle.run(battleInfo))#Post all at once
-                    with open("comments_replied_to.txt", "w") as f:
-                      for comment_id in comments_replied_to:
-                        f.write(comment_id + "\n")
 
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
 
 
@@ -118,16 +112,10 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     battle = Battle.Battle()
                     print ("Quick Mode\n")
                     comment.reply(battle.run(battleInfo))#Post all at once
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
            
             elif(re.search("Joust",comment.body,re.IGNORECASE)):
@@ -140,17 +128,11 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     Globals.resultsMode = False
                     print ("Quick Mode\n")
                     comment.reply(joust.run(joustInfo))#Post all at once
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
 
                     print("--- \n")
                 else:
                     print ("Improperly formatted joust\n---\n")
                     comment.reply("Improperly formatted joust info.")
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough.
 
 
@@ -163,17 +145,11 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     Globals.resultsMode = False
                     print ("Quick Mode\n")
                     comment.reply(duel.run(duelInfo))#Post all at once
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
 
                     print("--- \n")
                 else:
                     print ("\nImproperly formatted duel\n--- \n")
                     comment.reply("Improperly formatted duel info. Please format comment as follows: \n \nName of PC 1 +X \n \nName of PC 2 +X \n \nDramatic Mode (optional) \n \n Live Duel or Blunted Duel \n\ntag ManyFacedBot")
-                    with open("comments_replied_to.txt", "w") as f:
-                        for comment_id in comments_replied_to:
-                            f.write(comment_id + "\n")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
                 
             else:
