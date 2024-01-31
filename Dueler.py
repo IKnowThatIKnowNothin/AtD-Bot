@@ -18,11 +18,11 @@ class Dueler:
 		self.threshold = threshold
 		self.bonus = bonus
 	def attack_roll(self):
-                random.seed()
-                return random.randint(1,20)
-	def damage_roll(self):
+		random.seed()
+		return random.randint(1,20)
+	def damage_roll(self)
 		dmg = 0
 		random.seed()
 		for x in range(2):
-			dmg += random.randint(1,5)
-                return dmg +self.extradmg
+			dmg +=  random.randomint(1,5)
+		return dmg + self.extradmg
