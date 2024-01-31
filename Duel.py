@@ -2,6 +2,7 @@ import re
 import random
 import Dueler
 import Globals
+
 class Duel:
         
        
@@ -106,8 +107,7 @@ class Duel:
                                 
                 dueler1 = Dueler.Dueler(duelInfo.group(1), int(duelInfo.group(2)), int(duelInfo.group(3)))
                 dueler2 = Dueler.Dueler(duelInfo.group(5), int(duelInfo.group(6)), int(duelInfo.group(7)))
-  
-                print("Hi ,", battleInfo.group(9), "h")
+                
 
                 match duelInfo.group(4):
                         case "Masterwork":
