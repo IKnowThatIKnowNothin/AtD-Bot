@@ -137,7 +137,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
 
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                duelInfo = re.match("(.*) ([\-]?\d+)(.*)\n+(.*) ([\+\-]?\d*)\n+(.*) ([\-]?\d+)(.*)\n+(.*) ([\+\-]?\d*)",comment.body)
+                duelInfo = re.match"(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)",comment.body)
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()
