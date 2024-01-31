@@ -22,7 +22,7 @@ class Dueler:
         def attack_roll(self):
 		
                 random.seed()
-                return random.randint(1,20) +self.bonus
+                return random.randint(1,20)
 
 	def damage_roll(self):
 
