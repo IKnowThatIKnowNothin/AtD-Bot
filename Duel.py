@@ -31,13 +31,13 @@ class Duel:
                                 dueler2.morale -= dmgDealt
                                 roundmessage += "**Damage** Roll: {} ({}{:+})\n \n".format(dmgDealt,dmgDealt-dueler1.extradmg,dueler1.extradmg)
                                 roundmessage += "\n\n *** \n\n"
-                                roundmessage += "{} hits {}".format(dueler1.name,dueler2.name)
+                                roundmessage += "\n\n {} hits {}".format(dueler1.name,dueler2.name)
                         elif roll2 > roll1:
                                 dmgDealt = dueler2.damage_roll()
                                 dueler1.morale -= dmgDealt
                                 roundmessage += "**Damage** Roll: {} ({}{:+})\n \n".format(dmgDealt,dmgDealt-dueler2.extradmg,dueler2.extradmg)
                                 roundmessage += "\n\n *** \n\n"   
-                                roundmessage += "{} hits {} \n\n".format(dueler2.name,dueler1.name)
+                                roundmessage += "\n\n {} hits {} \n\n".format(dueler2.name,dueler1.name)
 
                         
                         if raw1 == 1:
@@ -45,7 +45,7 @@ class Duel:
                                         dueler1.ignoreInjury -= 1
                                 else:
                                         dueler1.bonus -= 2
-                                roundmessage += "{} has a critical miss \n\n".format(dueler1.name)
+                                roundmessage += "\n\n {} has a critical miss \n\n".format(dueler1.name)
                         elif (raw1 == 19 and dueler1.tier3 == 1) or (raw1 == 20):
                                 if dueler2.ignoreInjury > 0:
                                         dueler2.ignoreInjury -= 1
@@ -54,13 +54,13 @@ class Duel:
                                                 dueler2.bonus -= 4
                                         else:
                                                 dueler2.bonus -= 2
-                                roundmessage += "{} has a critical hit \n\n".format(dueler1.name)
+                                roundmessage += "\n\n {} has a critical hit \n\n".format(dueler1.name)
                         if raw2 == 1:
                                 if dueler2.ignoreInjury > 0:
                                         dueler2.ignoreInjury -= 1
                                 else:
                                         dueler2.bonus -= 2
-                                roundmessage += "{} has a critical miss \n\n".format(dueler2.name)
+                                roundmessage += "\n\n {} has a critical miss \n\n".format(dueler2.name)
                         elif (raw2 == 19 and dueler2.tier3 == 1) or (raw2 == 20):
                                 if dueler1.ignoreInjury > 0:
                                         dueler1.ignoreInjury -= 1
@@ -69,7 +69,7 @@ class Duel:
                                                 dueler1.bonus -= 4
                                         else:
                                                 dueler1.bonus -= 2
-                                roundmessage += "{} has a critical hit \n\n".format(dueler2.name)
+                                roundmessage += "\n\n {} has a critical hit \n\n".format(dueler2.name)
 
                         roundmessage += "*** \n\n The morale of the duellists currently stand as the following \n\n"
                         roundmessage += "**{}** Morale: {} \n \n".format(dueler1.name,dueler1.morale)
