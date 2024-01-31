@@ -24,5 +24,5 @@ class Dueler:
 		dmg = 0
 		random.seed()
 		for x in range(2):
-			dmg +=  random.randomint(1,5)
+			dmg +=  random.randint(1,5)
 		return dmg + self.extradmg
