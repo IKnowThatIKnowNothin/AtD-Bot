@@ -7,6 +7,7 @@ class Dueler:
 	threshold = 0
 	bonus = 0
 	extradmg = 0
+	dmg = 0
 	continueFighting = True
 	morale = 30
 	startpoint = 30
