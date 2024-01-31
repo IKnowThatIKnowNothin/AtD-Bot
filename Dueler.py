@@ -6,13 +6,6 @@ class Dueler:
 	name = ""
 	threshold = 0
 	bonus = 0
-	extradmg = 0
-	dmg = 0
-	continueFighting = True
-	morale = 30
-	startpoint = 30
-	ignoreInjury = 0
-	tier3 = 0 
 	def __init__(self,name,threshold,bonus):
 		self.name = name  
 		self.threshold = threshold
