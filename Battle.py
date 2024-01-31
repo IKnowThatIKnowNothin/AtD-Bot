@@ -34,11 +34,11 @@ class Battle:
                         
                         roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army1.name,roll1,roll1-army1.bonus,army1.bonus)
                         if (army1.bonus > 0):
-                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,army1.bonus)
+                            roundmessage += "\n\n {} + {} \n\n".format(runningBonus,army1.bonus)
                         elif (army1.bonus < 0):
-                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,army1.bonus)
+                            roundmessage += "\n\n {} {} \n\n".format(runningBonus,army1.bonus)
                         elif (noDice > 1):
-                            roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
+                            roundmessage += "\n\n {} \n\n".format(runningBonus)
                         else:
                             roundmessage += "\n\n *** \n\n"
                         
@@ -60,11 +60,11 @@ class Battle:
                         
                         roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(army2.name,roll2,roll2-army2.bonus,army2.bonus)
                         if (army2.bonus > 0):
-                            roundmessage += "\n\n {} + {} \n\n *** \n\n".format(runningBonus,army2.bonus)
+                            roundmessage += "\n\n {} + {} \n\n".format(runningBonus,army2.bonus)
                         elif (army2.bonus < 0):
-                            roundmessage += "\n\n {} {} \n\n *** \n\n".format(runningBonus,army2.bonus)
+                            roundmessage += "\n\n {} {} \n\n".format(runningBonus,army2.bonus)
                         elif (noDice > 1):
-                            roundmessage += "\n\n {} \n\n *** \n\n".format(runningBonus)
+                            roundmessage += "\n\n {} \n\n".format(runningBonus)
                         else:
                             roundmessage += "\n\n *** \n\n"
                         
@@ -100,7 +100,7 @@ class Battle:
                 #Godamn python globals. Logs the phase to print out and calculate casualties. Each pass through will add casualties onto the previous, making the total.
                 global attackcas
                 global defendcas
-                roundmessage += "The morales of the armies currently stand as the following\n \n"
+                roundmessage += "*** \n\n The morales of the armies currently stand as the following \n\n"
                 roundmessage += "**{}** Morale: {} \n \n".format(army1.name,army1.morale)
                 roundmessage += "**{}** Morale: {} \n \n".format(army2.name,army2.morale)
                 roundmessage += "--- \n \n"                        
