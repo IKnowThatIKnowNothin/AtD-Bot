@@ -100,7 +100,7 @@ class Battle:
                 #Godamn python globals. Logs the phase to print out and calculate casualties. Each pass through will add casualties onto the previous, making the total.
                 global attackcas
                 global defendcas
-                roundmessage += "*** \n\n The morales of the armies currently stand as the following \n\n"
+                roundmessage += "*** \n\n The morale of the armies currently stand as the following \n\n"
                 roundmessage += "**{}** Morale: {} \n \n".format(army1.name,army1.morale)
                 roundmessage += "**{}** Morale: {} \n \n".format(army2.name,army2.morale)
                 roundmessage += "--- \n \n"                        
@@ -574,7 +574,7 @@ class Battle:
                                                 defendcas += self.numberGen(3)                                 
                                                 
 
-                battlemessage += "{} Casualties = {}% \n \n{} Casualties = {}% \n \n".format(army1.name,attackcas,army2.name,defendcas)
+                battlemessage += "{} Casualties = {}% \n\n {} Casualties = {}% \n\n _Please remember to manually complete the relative army size calculation for casualities_ \n\n".format(army1.name,attackcas,army2.name,defendcas)
                 battlemessage += "--- \n \n"                                
       
                 return battlemessage
