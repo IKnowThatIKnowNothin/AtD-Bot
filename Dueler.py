@@ -11,7 +11,8 @@ class Dueler:
 	morale = 30
 	startpoint = 30
 	ignoreInjury = 0
-	tier3 = 0 #1 is Duellist, 2 is Iron Will, 3 is Bulwark
+	tier3 = 0 
+	###1 is Duellist, 2 is Iron Will, 3 is Bulwark
         def __init__(self,name,threshold,bonus):
 		self.name = name  
 		self.threshold = threshold
