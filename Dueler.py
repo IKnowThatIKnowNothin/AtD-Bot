@@ -5,7 +5,7 @@ class Dueler:
 
         name = ""
         threshold = 0
-        bonus = 0
+	bonus = 0
 	extradmg = 0
         continueFighting = True
         morale = 30
