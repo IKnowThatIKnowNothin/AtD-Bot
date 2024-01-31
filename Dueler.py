@@ -3,12 +3,12 @@ import random
 
 class Dueler:
 
-        name = ""
-        threshold = 0
+	name = ""
+	threshold = 0
 	bonus = 0
 	extradmg = 0
-        continueFighting = True
-        morale = 30
+	continueFighting = True
+	morale = 30
 	startpoint = 30
 	ignoreInjury = 0
 	tier3 = 0 #1 is Duellist, 2 is Iron Will, 3 is Bulwark
