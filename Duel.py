@@ -71,7 +71,7 @@ class Duel:
                                                 dueler1.bonus -= 2
                                 roundmessage += "\n\n {} has a critical hit \n\n".format(dueler2.name)
 
-                        roundmessage += "*** \n\n The morale of the duellists currently stand as the following \n\n"
+                        roundmessage += "\n\n The morale of the duellists currently stand as the following \n\n"
                         roundmessage += "**{}** Morale: {} \n \n".format(dueler1.name,dueler1.morale)
                         roundmessage += "**{}** Morale: {} \n \n".format(dueler2.name,dueler2.morale)
                         roundmessage += "--- \n \n"  
