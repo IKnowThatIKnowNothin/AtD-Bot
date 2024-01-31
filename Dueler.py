@@ -20,7 +20,7 @@ class Dueler:
 	def attack_roll(self):
 		random.seed()
 		return random.randint(1,20)
-	def damage_roll(self)
+	def damage_roll(self):
 		dmg = 0
 		random.seed()
 		for x in range(2):
