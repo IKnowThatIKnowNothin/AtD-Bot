@@ -2,7 +2,7 @@ import praw
 import os
 import re
 import Battle
-#import Duel
+import Duel
 import Joust
 import time
 import Army
