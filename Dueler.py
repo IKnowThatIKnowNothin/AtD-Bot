@@ -12,21 +12,14 @@ class Dueler:
 	startpoint = 30
 	ignoreInjury = 0
 	tier3 = 0 #1 is Duellist, 2 is Iron Will, 3 is Bulwark
-	
-	
         def __init__(self,name,threshold,bonus):
-
-                self.name = name  
-                self.threshold = threshold
-                self.bonus = bonus
-
+		self.name = name  
+		self.threshold = threshold
+		self.bonus = bonus
         def attack_roll(self):
-		
                 random.seed()
                 return random.randint(1,20)
-
 	def damage_roll(self):
-
 		dmg = 0
                 random.seed()
 		for x in range(2):
