@@ -137,7 +137,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
 
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)",comment.body)
+                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*)(.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*)(.*)",comment.body)
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()
@@ -149,7 +149,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print("--- \n")
                 else:
                     print ("\nImproperly formatted duel\n--- \n")
-                    comment.reply("Improperly formatted duel info. Please format comment as follows: \n \nName of PC 1 +X \n \nName of PC 2 +X \n \nDramatic Mode (optional) \n \n Live Duel or Blunted Duel \n\ntag ManyFacedBot")
+                    print("DuelInfo Group 4: ", duelInfo.group(4))
+                    comment.reply("Improperly formatted duel info.")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
                 
             else:
