@@ -149,7 +149,6 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print("--- \n")
                 else:
                     print ("\nImproperly formatted duel\n--- \n")
-                    print("DuelInfo Group 4: ", duelInfo.group(4))
                     comment.reply("Improperly formatted duel info.")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
                 
