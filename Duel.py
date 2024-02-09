@@ -170,6 +170,9 @@ class Duel:
                         dueler2.extradmg += 2
                         dueler2.tier3 = 3
                 dueler2.startpoint = dueler2.morale
+
+                print(dueler1.bonus)
+                print(dueler2.bonus)
                 
                 battlemessage = "#Duel Between {} and {} \n \n".format(dueler1.name,dueler1.name)                       
                 battlemessage += "--- \n \n"
