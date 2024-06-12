@@ -12,7 +12,8 @@ class Dueler:
 	morale = 30
 	startpoint = 30
 	ignoreInjury = 0
-	tier3 = 0 
+	critThreshold = 10
+	doubleCrit = False
 	def __init__(self,name,threshold,bonus):
 		self.name = name  
 		self.threshold = threshold
@@ -26,3 +27,9 @@ class Dueler:
 		for x in range(2):
 			dmg +=  random.randint(1,5)
 		return dmg + self.extradmg
+	def apply_injury(self):
+		if self.ignoreInjury > 0:
+			self.ignoreInjury -= 1
+		else:
+			self.bonus -= 2
+
