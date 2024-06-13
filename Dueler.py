@@ -12,7 +12,7 @@ class Dueler:
 	morale = 30
 	startpoint = 30
 	ignoreInjury = 0
-	critThreshold = 10
+	critThreshold = 20
 	doubleCrit = False
 	def __init__(self,name,threshold,bonus):
 		self.name = name  
