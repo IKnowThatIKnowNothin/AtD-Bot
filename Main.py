@@ -9,11 +9,11 @@ import Army
 import random
 import Globals
 
-reddit = praw.Reddit(user_agent="7K Duelbot (by /u/as334)" ,
-                     client_id="aJrqQLE4X02aag",
-                     client_secret="jCBeHkkfLDFc-MnUwrUdIk9lb3g" ,
-                     password="norvos",
-                     username="7KDuelBot"
+reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
+                     client_id=os.environ['PRAW_ID'] ,
+                     client_secret=os.environ['PRAW_SECRET'] ,
+                     password=os.environ['REDDIT_PW'] ,
+                     username=os.environ['REDDIT_USER']
 )
 
 print(reddit.user.me())
@@ -23,12 +23,12 @@ with open("comments_replied_to.txt", "r") as f:
     comments_replied_to = f.read()
     comments_replied_to = comments_replied_to.split("\n")
     comments_replied_to = list(filter(None, comments_replied_to))
-subreddit = reddit.subreddit('NinePennyKingsMods')
+subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods')
 for comment in subreddit.stream.comments(skip_existing=True):
     try:
         comment.refresh()
     
-        if((re.search('/u/7KDuelbot',comment.body,re.IGNORECASE) or re.search('u/7kDuelbot',comment.body,re.IGNORECASE)) and comment.id not in comments_replied_to): #Make sure we're tagged in order to run. Non caps-sensitive.
+        if((re.search('/u/modbotshit',comment.body,re.IGNORECASE) or re.search('u/modbotshit',comment.body,re.IGNORECASE)) and comment.id not in comments_replied_to): #Make sure we're tagged in order to run. Non caps-sensitive.
             comments_replied_to.append(comment.id)
     
             if(re.search("Roll",comment.body,re.IGNORECASE)):
