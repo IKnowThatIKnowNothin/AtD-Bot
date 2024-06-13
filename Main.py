@@ -16,6 +16,7 @@ reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
                      username=os.environ['REDDIT_USER']
 )
 
+print(reddit.user.me())
 print("---\n")
 
 with open("comments_replied_to.txt", "r") as f:
@@ -137,14 +138,16 @@ for comment in subreddit.stream.comments(skip_existing=True):
 
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*)(.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*)(.*)",comment.body)
+                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) (.*)",comment.body)
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()
 
                     Globals.resultsMode = False
                     print ("Quick Mode\n")
-                    comment.reply(duel.run(duelInfo))#Post all at once
+                    result = duel.run(duelInfo)
+                    #print(result)
+                    comment.reply(result)#Post all at once
 
                     print("--- \n")
                 else:
@@ -156,8 +159,9 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 comment.reply("Improperly formatted info. Please state which function you wish to use.")
                 print("Improperly formatted info\n---\n")
 
-    except praw.exceptions.ClientException:  # fix for deleted comments
-        print('SKIPPING due to ClientException')
+    except praw.exceptions.ClientException as excep:  # fix for deleted comments
+        print('SKIPPING due to ClientException:')
+        print(excep)
         continue
 
     
