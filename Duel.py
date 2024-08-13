@@ -107,6 +107,8 @@ class Duel:
                 elif duelInfo.group(4) == "Bulwark3":
                         dueler1.extradmg += 2
                         dueler1.doubleCrit = True
+                elif duelInfo.group(4) == "Blunted":
+                        dueler1.extradmg -= 3
                 dueler1.startpoint = dueler1.morale
 
                 if duelInfo.group(8) == "Masterwork":
@@ -138,6 +140,8 @@ class Duel:
                 elif duelInfo.group(8) == "Bulwark3":
                         dueler2.extradmg += 2
                         dueler2.doubleCrit = True
+                elif duelInfo.group(8) == "Blunted":
+                        dueler2.extradmg -= 3
                 dueler2.startpoint = dueler2.morale
 
                 print(dueler1.doubleCrit)
