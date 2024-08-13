@@ -26,7 +26,10 @@ class Dueler:
 		random.seed()
 		for x in range(2):
 			dmg +=  random.randint(1,5)
-		return dmg + self.extradmg
+		dmg += self.extradmg
+		if dmg < 1:
+			dmg = 1
+		return dmg
 	def apply_injury(self):
 		if self.ignoreInjury > 0:
 			self.ignoreInjury -= 1
