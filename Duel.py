@@ -90,22 +90,24 @@ class Duel:
                         dueler1.bonus += 6
                         dueler1.critThreshold = 19
                 elif duelInfo.group(4) == "IronWill1":
-                        dueler1.morale += 5
+                        dueler1.morale += 8
                         dueler1.ignoreInjury += 1
                 elif duelInfo.group(4) == "IronWill2":
-                        dueler1.morale += 10
-                        dueler1.ignoreInjury += 1
-                elif duelInfo.group(4) == "IronWill3":
-                        dueler1.morale += 15
+                        dueler1.morale += 25
                         dueler1.ignoreInjury += 2
-                        dueler1.bonus += 2
+                elif duelInfo.group(4) == "IronWill3":
+                        dueler1.morale += 65
+                        dueler1.ignoreInjury += 3
+                        dueler1.bonus += 1
                 elif duelInfo.group(4) ==  "Bulwark1":
-                        dueler1.bonus -= 1
+                        dueler2.bonus -= 1
                         dueler1.extradmg += 2
                 elif duelInfo.group(4) == "Bulwark2":
-                        dueler1.extradmg += 2
+                        dueler2.bonus -= 2
+                        dueler1.extradmg += 3
                 elif duelInfo.group(4) == "Bulwark3":
-                        dueler1.extradmg += 2
+                        dueler2.bonus -= 3
+                        dueler1.extradmg += 3
                         dueler1.doubleCrit = True
                 elif duelInfo.group(4) == "Blunted":
                         dueler1.extradmg -= 3
@@ -123,22 +125,24 @@ class Duel:
                         dueler2.bonus += 6
                         dueler2.critThreshold = 19
                 elif duelInfo.group(8) == "IronWill1":
-                        dueler2.morale += 5
+                        dueler2.morale += 8
                         dueler2.ignoreInjury += 1
                 elif duelInfo.group(8) == "IronWill2":
-                        dueler2.morale += 10
-                        dueler2.ignoreInjury += 1
-                elif duelInfo.group(8) == "IronWill3":
-                        dueler2.morale += 15
+                        dueler2.morale += 25
                         dueler2.ignoreInjury += 2
-                        dueler2.bonus += 2
+                elif duelInfo.group(8) == "IronWill3":
+                        dueler2.morale += 35
+                        dueler2.ignoreInjury += 3
+                        dueler2.bonus += 1
                 elif duelInfo.group(8) ==  "Bulwark1":
-                        dueler2.bonus -= 1
-                        dueler2.extradmg += 2
+                        dueler1.bonus -= 1
+                        dueler2.extradmg += 1
                 elif duelInfo.group(8) == "Bulwark2":
-                        dueler2.extradmg += 2
+                        dueler1.bonus -= 2
+                        dueler2.extradmg += 3
                 elif duelInfo.group(8) == "Bulwark3":
-                        dueler2.extradmg += 2
+                        dueler1.bonus -= 3
+                        dueler2.extradmg += 3
                         dueler2.doubleCrit = True
                 elif duelInfo.group(8) == "Blunted":
                         dueler2.extradmg -= 3
