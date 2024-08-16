@@ -19,6 +19,10 @@ reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
 print(reddit.user.me())
 print("---\n")
 
+with open("comments_replied_to.txt", "r") as f:
+    comments_replied_to = f.read()
+    comments_replied_to = comments_replied_to.split("\n")
+    comments_replied_to = list(filter(None, comments_replied_to))
 subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods')
 for comment in subreddit.stream.comments(skip_existing=True):
     try:
