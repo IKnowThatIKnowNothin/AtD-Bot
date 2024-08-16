@@ -73,80 +73,85 @@ class Duel:
                 roundCount = 1
                                 
                 dueler1 = Dueler.Dueler(duelInfo.group(1), int(duelInfo.group(2)), int(duelInfo.group(3)))
-                dueler2 = Dueler.Dueler(duelInfo.group(5), int(duelInfo.group(6)), int(duelInfo.group(7)))
+                dueler2 = Dueler.Dueler(duelInfo.group(6), int(duelInfo.group(7)), int(duelInfo.group(8))) ##
                 
                 print(duelInfo.group(4))
-                print(duelInfo.group(8))
+                print(duelInfo.group(5))
+                print(duelInfo.group(9)) ##
+                print(duelInfo.group(10)) ##
 
-                if duelInfo.group(4) == "Masterwork":
-                        dueler1.extradmg += 1
-                elif duelInfo.group(4) == "VS":
-                        dueler1.extradmg += 3
-                elif duelInfo.group(4) == "Duelist1":
-                        dueler1.bonus += 2
-                elif duelInfo.group(4) == "Duelist2":
-                        dueler1.bonus += 4
-                elif duelInfo.group(4) == "Duelist3":
-                        dueler1.bonus += 6
-                        dueler1.critThreshold = 19
-                elif duelInfo.group(4) == "IronWill1":
-                        dueler1.morale += 8
-                        dueler1.ignoreInjury += 1
-                elif duelInfo.group(4) == "IronWill2":
-                        dueler1.morale += 25
-                        dueler1.ignoreInjury += 2
-                elif duelInfo.group(4) == "IronWill3":
-                        dueler1.morale += 65
-                        dueler1.ignoreInjury += 3
-                        dueler1.bonus += 1
-                elif duelInfo.group(4) ==  "Bulwark1":
-                        dueler2.bonus -= 1
-                        dueler1.extradmg += 2
-                elif duelInfo.group(4) == "Bulwark2":
-                        dueler2.bonus -= 2
-                        dueler1.extradmg += 3
-                elif duelInfo.group(4) == "Bulwark3":
-                        dueler2.bonus -= 3
-                        dueler1.extradmg += 3
-                        dueler1.doubleCrit = True
-                elif duelInfo.group(4) == "Blunted":
-                        dueler1.extradmg -= 3
-                dueler1.startpoint = dueler1.morale
+                for i in range(4, 6):
+                        if duelInfo.group(i) == "Masterwork":
+                                dueler1.extradmg += 1
+                        elif duelInfo.group(i) == "VS":
+                                dueler1.extradmg += 3
+                        elif duelInfo.group(i) == "Duelist1":
+                                dueler1.bonus += 2
+                        elif duelInfo.group(i) == "Duelist2":
+                                dueler1.bonus += 4
+                        elif duelInfo.group(i) == "Duelist3":
+                                dueler1.bonus += 6
+                                dueler1.critThreshold = 19
+                        elif duelInfo.group(i) == "IronWill1":
+                                dueler1.morale += 8
+                                dueler1.ignoreInjury += 1
+                        elif duelInfo.group(i) == "IronWill2":
+                                dueler1.morale += 25
+                                dueler1.ignoreInjury += 2
+                        elif duelInfo.group(i) == "IronWill3":
+                                dueler1.morale += 65
+                                dueler1.ignoreInjury += 3
+                                dueler1.bonus += 1
+                        elif duelInfo.group(i) ==  "Bulwark1":
+                                dueler2.bonus -= 1
+                                dueler1.extradmg += 2
+                        elif duelInfo.group(i) == "Bulwark2":
+                                dueler2.bonus -= 2
+                                dueler1.extradmg += 3
+                        elif duelInfo.group(i) == "Bulwark3":
+                                dueler2.bonus -= 3
+                                dueler1.extradmg += 3
+                                dueler1.doubleCrit = True
+                        elif duelInfo.group(i) == "Blunted":
+                                dueler1.extradmg -= 3
+                        dueler1.startpoint = dueler1.morale
 
-                if duelInfo.group(8) == "Masterwork":
-                        dueler2.extradmg += 1
-                elif duelInfo.group(8) == "VS":
-                        dueler2.extradmg += 3
-                elif duelInfo.group(8) == "Duelist1":
-                        dueler2.bonus += 2
-                elif duelInfo.group(8) == "Duelist2":
-                        dueler2.bonus += 4
-                elif duelInfo.group(8) == "Duelist3":
-                        dueler2.bonus += 6
-                        dueler2.critThreshold = 19
-                elif duelInfo.group(8) == "IronWill1":
-                        dueler2.morale += 8
-                        dueler2.ignoreInjury += 1
-                elif duelInfo.group(8) == "IronWill2":
-                        dueler2.morale += 25
-                        dueler2.ignoreInjury += 2
-                elif duelInfo.group(8) == "IronWill3":
-                        dueler2.morale += 35
-                        dueler2.ignoreInjury += 3
-                        dueler2.bonus += 1
-                elif duelInfo.group(8) ==  "Bulwark1":
-                        dueler1.bonus -= 1
-                        dueler2.extradmg += 1
-                elif duelInfo.group(8) == "Bulwark2":
-                        dueler1.bonus -= 2
-                        dueler2.extradmg += 3
-                elif duelInfo.group(8) == "Bulwark3":
-                        dueler1.bonus -= 3
-                        dueler2.extradmg += 3
-                        dueler2.doubleCrit = True
-                elif duelInfo.group(8) == "Blunted":
-                        dueler2.extradmg -= 3
-                dueler2.startpoint = dueler2.morale
+
+                for j in range(9, 11):
+                        if duelInfo.group(j) == "Masterwork": ##
+                                dueler2.extradmg += 1
+                        elif duelInfo.group(j) == "VS": ##
+                                dueler2.extradmg += 3
+                        elif duelInfo.group(j) == "Duelist1": ##
+                                dueler2.bonus += 2
+                        elif duelInfo.group(j) == "Duelist2": ##
+                                dueler2.bonus += 4
+                        elif duelInfo.group(j) == "Duelist3": ##
+                                dueler2.bonus += 6
+                                dueler2.critThreshold = 19
+                        elif duelInfo.group(j) == "IronWill1": ##
+                                dueler2.morale += 8
+                                dueler2.ignoreInjury += 1
+                        elif duelInfo.group(j) == "IronWill2": ##
+                                dueler2.morale += 25
+                                dueler2.ignoreInjury += 2
+                        elif duelInfo.group(j) == "IronWill3": ##
+                                dueler2.morale += 35
+                                dueler2.ignoreInjury += 3
+                                dueler2.bonus += 1
+                        elif duelInfo.group(j) ==  "Bulwark1": ##
+                                dueler1.bonus -= 1
+                                dueler2.extradmg += 1
+                        elif duelInfo.group(j) == "Bulwark2": ##
+                                dueler1.bonus -= 2
+                                dueler2.extradmg += 3
+                        elif duelInfo.group(j) == "Bulwark3": ##
+                                dueler1.bonus -= 3
+                                dueler2.extradmg += 3
+                                dueler2.doubleCrit = True
+                        elif duelInfo.group(j) == "Blunted": ##
+                                dueler2.extradmg -= 3
+                        dueler2.startpoint = dueler2.morale
 
                 print(dueler1.doubleCrit)
                 print(dueler2.doubleCrit)
