@@ -143,6 +143,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 tempd2 = duelInfo.group(10)
                 j = 6
                 for i in range(5,10):
+                    duelInfo.sub(duelInfo.group(j), duelInfo.group(i), count=1)
                     duelInfo.group(i) = duelInfo.group(j)
                     j += 1
                 duelInfo.group(9) = tempd1
