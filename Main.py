@@ -145,8 +145,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 for i in range(5,10):
                     duelInfo.sub(duelInfo.group(j), duelInfo.group(i), count=1)
                     j += 1
-                duelInfo.group(9) = tempd1
-                duelInfo.group(10) = tempd2
+                duelInfo.sub(tempd1, duelInfo.group(9), count=1)
+                duelInfo.sub(tempd2, duelInfo.group(10), count=1)
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()
