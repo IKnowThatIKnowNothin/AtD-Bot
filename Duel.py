@@ -156,7 +156,7 @@ class Duel:
                 print(dueler1.doubleCrit)
                 print(dueler2.doubleCrit)
                 
-                battlemessage = "#Duel Between {} and {} \n \n".format(dueler1.name,dueler1.name)                       
+                battlemessage = "#Duel Between {} and {} \n \n".format(dueler1.name,dueler2.name)                       
                 battlemessage += "--- \n \n"
 
                 battlemessage += self.run_round(dueler1,dueler2,roundCount)
