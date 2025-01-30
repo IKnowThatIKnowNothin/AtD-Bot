@@ -144,7 +144,7 @@ class Battle:
                 army1 = Army.Army(battleInfo.group(1), int(group2), battleInfo.group(4), int(battleInfo.group(5)), int(group6))
                 army2 = Army.Army(battleInfo.group(7), int(group8), battleInfo.group(10), int(battleInfo.group(11)), int(group12))
   
-                print("Hi ,", battleInfo.group(9), "h")
+                print("Group 9 Battle Info = ,", battleInfo.group(9), "h")
 
                 global extramorale1
                 extramorale1 = 0
@@ -165,6 +165,8 @@ class Battle:
                 if(battleInfo.group(9) == " Inspiring3"):
                         army2.morale += 50
 
+                print(army1.bonus)
+                print(army2.bonus)
                 if(army1.power == 0):
                         autosurrender = 1
                 elif(army2.power == 0):
@@ -433,6 +435,8 @@ class Battle:
                                 army2.bonus += 30
                                 #autosurrender = 1
 
+                print(army1.bonus)
+                print(army2.bonus)
                 
                 if(Globals.battleType == "Naval"):
                         battlemessage = "#Naval Battle Between {} and {} \n \n".format(army1.name,army2.name)                       
