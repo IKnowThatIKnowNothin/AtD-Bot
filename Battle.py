@@ -165,8 +165,6 @@ class Battle:
                 if(battleInfo.group(9) == " Inspiring3"):
                         army2.morale += 50
 
-                print(army1.bonus)
-                print(army2.bonus)
                 if(army1.power == 0):
                         autosurrender = 1
                 elif(army2.power == 0):
@@ -175,7 +173,9 @@ class Battle:
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 2.5 and difference <= 20):
+                        if(difference >= 2.5):
+                                army1.bonus += 0
+                        elif(difference <= 20):
                                 army1.bonus += 1
                         elif(difference <= 40):
                                 army1.bonus += 2
@@ -241,8 +241,10 @@ class Battle:
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 2.5 and difference <= 20):
-                                army2.bonus += 1
+                        if(difference >= 2.5):
+                                army1.bonus += 0
+                        elif(difference <= 20):
+                                army1.bonus += 1
                         elif(difference <= 40):
                                 army2.bonus += 2
                         elif(difference <= 60):
@@ -307,7 +309,9 @@ class Battle:
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 5 and difference <= 20):
+                        if(difference >= 5):
+                                army1.bonus += 0
+                        elif(difference <= 20):
                                 army1.bonus += 1
                         elif(difference <= 40):
                                 army1.bonus += 2
@@ -373,8 +377,10 @@ class Battle:
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 5 and difference <= 20):
-                                army2.bonus += 1
+                        if(difference >= 5):
+                                army1.bonus += 0
+                        elif(difference <= 20):
+                                army1.bonus += 1
                         elif(difference <= 40):
                                 army2.bonus += 2
                         elif(difference <= 60):
@@ -435,8 +441,6 @@ class Battle:
                                 army2.bonus += 30
                                 #autosurrender = 1
 
-                print(army1.bonus)
-                print(army2.bonus)
                 
                 if(Globals.battleType == "Naval"):
                         battlemessage = "#Naval Battle Between {} and {} \n \n".format(army1.name,army2.name)                       
