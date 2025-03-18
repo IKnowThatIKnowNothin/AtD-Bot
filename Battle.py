@@ -172,7 +172,7 @@ class Battle:
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 2.5):
+                        if(difference <= 2.5):
                                 army1.bonus += 0
                         elif(difference <= 20):
                                 army1.bonus += 1
@@ -241,7 +241,7 @@ class Battle:
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 2.5):
+                        if(difference <= 2.5):
                                 army1.bonus += 0
                         elif(difference <= 20):
                                 army1.bonus += 1
@@ -309,7 +309,7 @@ class Battle:
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 5):
+                        if(difference <= 5):
                                 army1.bonus += 0
                         elif(difference <= 20):
                                 army1.bonus += 1
@@ -377,7 +377,7 @@ class Battle:
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
-                        if(difference >= 5):
+                        if(difference <= 5):
                                 army1.bonus += 0
                         elif(difference <= 20):
                                 army1.bonus += 1
