@@ -143,8 +143,6 @@ class Battle:
                 
                 army1 = Army.Army(battleInfo.group(1), int(group2), battleInfo.group(4), int(battleInfo.group(5)), int(group6))
                 army2 = Army.Army(battleInfo.group(7), int(group8), battleInfo.group(10), int(battleInfo.group(11)), int(group12))
-  
-                print("Group 9 Battle Info = ,", battleInfo.group(9), "h")
 
                 global extramorale1
                 extramorale1 = 0
@@ -170,6 +168,7 @@ class Battle:
                 elif(army2.power == 0):
                         autosurrender = 2
                 elif(army1.power > army2.power and Globals.battleType == "Naval"):
+                        print("A1")
                         difference = (army1.power / army2.power) - 1
                         difference *= 100
                         print(difference)
@@ -238,6 +237,7 @@ class Battle:
                                 #autosurrender = 2
                                 print("")
                 elif(army2.power > army1.power and Globals.battleType == "Naval"):
+                        print("A2")
                         difference = (army2.power / army1.power) - 1
                         difference *= 100
                         print(difference)
