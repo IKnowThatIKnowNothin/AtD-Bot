@@ -12,6 +12,7 @@ import Army
 import random
 import Globals
 import SidebarDate
+import TP
 
 
 reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
