@@ -186,6 +186,6 @@ class TPHandler:
         # Add chokepoint notices if applicable
         notices = self.check_chokepoints_in_path(path)
         if notices:
-            reply_text += "\n\n**Note:**\n" + "\n".join(notices)
+            reply_text += "\n\n**Note:**\n" + "\n".join(f"\n- {notice}" for notice in notices)
 
         self.comment.reply(reply_text)
