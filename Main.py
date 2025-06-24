@@ -136,8 +136,6 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     comment.reply("Improperly formatted battle info.")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
 
-
-
                         
             elif(re.search("Land Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Land"
@@ -152,7 +150,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
-           
+
+          
             elif(re.search("Joust",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Joust"
                 joustInfo = re.match("(.*) ([\+\-]?\d*)\n+(.*) ([\+\-]?\d*)",comment.body)
@@ -188,6 +187,18 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print ("\nImproperly formatted duel\n--- \n")
                     comment.reply("Improperly formatted duel info.")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
+
+          
+            elif(re.search("TP", comment.body, re.IGNORECASE)):
+                try:
+                    handler = TP.TPHandler(comment)
+                    handler.handle()
+                    print("Handled TP\n---\n")
+                except Exception as e:
+                    print("Error in TP handler:", e)
+                    comment.reply("An error occurred while processing your TP request.")
+                time.sleep(60)
+
                 
             else:
                 comment.reply("Improperly formatted info. Please state which function you wish to use.")
