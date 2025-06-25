@@ -13,6 +13,9 @@ import random
 import Globals
 import SidebarDate
 import TP
+from movementcalculator import land_movement
+from movementcalculator import naval_movement
+import traceback
 
 
 reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
@@ -136,7 +139,6 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
                 time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
-
                         
             elif(re.search("Land Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Land"
@@ -170,7 +172,6 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     comment.reply("Improperly formatted joust info.")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough.
 
-
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
                 duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) (.*) (.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) (.*) (.*)",comment.body)
                 if(duelInfo):
@@ -188,8 +189,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print ("\nImproperly formatted duel\n--- \n")
                     comment.reply("Improperly formatted duel info.")
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
+            
 
-          
             elif(re.search("TP", comment.body, re.IGNORECASE)):
                 try:
                     handler = TP.TPHandler(comment)
@@ -197,9 +198,36 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print("Handled TP\n---\n")
                 except Exception as e:
                     print("Error in TP handler:", e)
-                    comment.reply("An error occurred while processing your TP request.")
-                time.sleep(60)
+                    comment.reply("An error occurred while processing your TP request. Please double-check your format.")
+                time.sleep(60) #We sleep for 3 minutes after each TP so we don't get screwed by rate limits. Delete this when karma is high enough
 
+            elif re.search("Land Movement", comment.body, re.IGNORECASE):
+                try:
+                    reply_text = land_movement.parse_land_movement_comment(comment)
+                    print("Handled Land Movement\n---\n")
+                    comment.reply(reply_text)
+                except ValueError as ve:
+                        comment.reply(str(ve))
+                except Exception as e:
+                    print(f"[ERROR] Land Movement handler: {e}")
+                    traceback.print_exc()
+                    comment.reply(f"Unexpected error occurred:\n\n{e}\n\nPlease verify your format.")
+                time.sleep(60) #We sleep for 3 minutes after each Move so we don't get screwed by rate limits. Delete this when karma is high enough
+
+            elif re.search("Naval Movement", comment.body, re.IGNORECASE):
+                try:
+                    reply_text = naval_movement.parse_naval_movement_comment(comment)
+                    if reply_text:
+                        print("Handled Naval Movement\n---\n")
+                        comment.reply(reply_text)
+                except ValueError as ve:
+                        comment.reply(str(ve))
+                except Exception as e:
+                    print(f"[ERROR] Naval Movement handler: {e}")
+                    traceback.print_exc()
+                    comment.reply(f"Unexpected error occurred:\n\n{e}\n\nPlease verify your format.")
+                time.sleep(60) #We sleep for 3 minutes after each Move so we don't get screwed by rate limits. Delete this when karma is high enough
+ 
                 
             else:
                 comment.reply("Improperly formatted info. Please state which function you wish to use.")
