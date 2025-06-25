@@ -1,5 +1,8 @@
+# Implemented by /u/Crazymajor
+
 import re
 from collections import deque
+
 
 # ============================ Load Locations by Region ============================
 
@@ -184,8 +187,8 @@ class TPHandler:
         reply_text += f"\n\n**Route Taken:** {route_summary}"
 
         # Add chokepoint notices if applicable
-        notices = self.check_chokepoints_in_path(path)
-        if notices:
-            reply_text += "\n\n**Note:**\n" + "\n".join(f"\n- {notice}" for notice in notices)
+        # notices = self.check_chokepoints_in_path(path)
+        # if notices:
+            # reply_text += "\n\n**Note:**\n" + "\n".join(f"\n- {notice}" for notice in notices)
 
         self.comment.reply(reply_text)
