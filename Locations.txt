@@ -1,0 +1,607 @@
+North
+
+Winterfell
+Torrhen's Square
+Castle Cerwyn
+Highpoint
+Ironrath
+N21
+N22
+N23
+N29
+N30
+N38
+Kingshouse
+Deepdown
+Skane
+Driftwood Hall
+N75
+White Harbor
+Ramsgate
+Widow's Watch
+Oldcastle
+N49
+N50
+N51
+N52
+N58
+N59
+N60
+Barrowton
+Goldgrass
+N45
+N46
+N47
+N48
+N54
+N55
+N57
+N76
+The Dreadfort
+N24
+N25
+N31
+N32
+N39
+Hornwood
+N33
+N40
+Karhold
+N6
+N7
+N8
+N13
+N14
+N15
+N16
+N17
+N18
+Deepwood Motte
+N9
+N19
+N20
+N26
+N27
+Last Hearth
+Breakstone Hill
+N1
+N2
+N3
+N4
+N5
+N10
+N11
+N12
+The Rills
+N28
+N34
+N35
+N36
+N37
+N41
+N42
+N43
+N44
+N53
+N56
+Greywater Watch
+N63
+N64
+N65
+N69
+N70
+N71
+N72
+N73
+N74
+Bear Island
+Flint's Finger
+N61
+N62
+N66
+N67
+N68
+
+Riverlands
+
+Riverrun
+RL16
+RL20
+RL21
+The Twins
+RL5
+Sevenstreams
+RL6
+RL8
+Frog's Eye
+RL35
+RL36
+RL39
+RL10
+RL11
+Castlewood
+RL43
+RL44
+Raventree Hall
+Fairmarket
+Mudgrave
+RL9
+RL12
+RL17
+RL18
+RL23
+Stone Hedge
+Stoney Sept
+Honeytree
+Acorn Hall
+RL14
+RL28
+RL29
+RL34
+Darry
+Lord Harroway's Town
+RL13
+RL19
+RL22
+RL24
+RL30
+Maidenpool
+Saltpans
+RL15
+RL25
+RL31
+RL32
+RL37
+Harrenhal
+Briarwhite
+RL40
+RL45
+Wayfarer's Rest
+Pinkmaiden
+RL41
+RL26
+RL27
+RL33
+RL38
+RL42
+Seagard
+Oldstones
+RL1
+RL2
+RL3
+RL4
+RL7
+
+Vale
+
+The Eyrie & Gates of the Moon
+Pebble
+The Paps
+V11
+V12
+V13
+V15
+V16
+V23
+V24
+V29
+Runestone
+Grey Glen
+Coldwater Burn
+Old Anchor
+V25
+V26
+V31
+V32
+V37
+Gulltown
+Witch Isle
+V38
+Ironoaks
+Redfort
+V30
+V33
+V34
+V35
+V36
+Heart's Home
+Drearfort
+Snakewood
+V7
+V8
+V14
+V17
+V18
+V43
+Longbow Hall
+V19
+V20
+V21
+V22
+V27
+V28
+Strongsong
+V1
+V2
+V3
+V4
+V5
+V6
+V9
+V10
+Ninestars
+Wickenden
+V39
+V40
+V41
+Sisterton
+Longsister
+Littlesister
+
+Iron Islands
+
+Pyke
+Ironholt
+Saltcliffe
+Ten Towers
+Volmark
+Hammerhorn
+Sealskin Point
+Pebbleton
+Lonely Light
+Old Wyk
+Orkmont
+Blacktyde
+
+Crownlands
+
+King's Landing
+C14
+C15
+C16
+C24
+C25
+C26
+Dragonstone
+Driftmark
+Hightide
+Sharp Point
+Sweetport Sound
+Claw Isle
+Duskendale
+Antlers
+Rook's Rest
+C5
+C7
+C8
+C9
+C11
+Stokeworth
+Rosby
+Hayford
+Sow's Horn
+C4
+C6
+C10
+C12
+C13
+Stonedance
+C20
+C17
+C18
+C19
+C21
+Wendwater Bridge
+C23
+Dyre Den
+Brownhollow
+Whispers
+C1
+C2
+Shell Cove
+
+Westerlands
+
+Casterly Rock & Lannisport
+W15
+W19
+W25
+Castamere
+The Crag
+Sarsfield
+Hornvale
+W7
+W8
+W16
+W20
+W21
+Feastfires
+Kayce
+W11
+W12
+W13
+Silverhill
+Riverspring
+W27
+W32
+W33
+Ashemark
+W6
+W4
+W5
+W10
+Golden Tooth
+Deep Den
+W9
+W14
+W17
+W18
+W22
+Crakehall
+Cornfield
+W26
+W28
+W29
+W30
+W31
+Banefort
+W1
+W2
+W3
+Tarbeck Hall
+W24
+Faircastle
+
+Reach
+
+Highgarden
+Dunstonbury
+R49
+R36
+R44
+R45
+R46
+R48
+Oldtown
+Bandallon
+Honeyholt
+Blackcrown
+Three Towers
+Uplands
+Cuy
+R58
+R63
+R64
+R65
+R66
+R67
+R68
+R69
+R70
+R71
+R72
+R73
+R74
+R75
+The Arbor
+Ryamsport
+Goldengrove
+Coldmoat
+R6
+R5
+R17
+R18
+R19
+R27
+R28
+R37
+R38
+Old Oak
+Red Lake
+R16
+R1
+R2
+R3
+R4
+R15
+R24
+R25
+R26
+R35
+Brightwater Keep
+R52
+R53
+R54
+R59
+Shield Islands
+Greenshield
+Southshield
+Lord Hewett's Town
+Horn Hill
+Whitegrove
+R51
+R55
+R56
+R57
+R60
+R61
+R62
+Longtable
+Grassy Vale
+R23
+R30
+R31
+R32
+R33
+R34
+R40
+R41
+R42
+R43
+Bitterbridge
+Tumbleton
+R9
+R13
+R7
+R8
+R11
+R12
+R20
+R21
+R22
+Cider Hall
+Ashford
+R47
+New Barrel
+Starpike
+R50
+R39
+R29
+
+Stormlands
+
+Storm's End
+Haystack Hall
+Gallowsgrey
+S4
+S7
+S8
+S9
+S12
+S42
+Stonehelm
+Crow's Nest
+Mistwood
+Weeping Town
+S19
+S27
+S28
+S29
+S36
+Nightsong
+Harvest Hall
+S20
+S23
+S24
+S32
+S33
+S39
+S40
+Blackhaven
+Summerhall
+S17
+S21
+S22
+S25
+S26
+S34
+S35
+Griffin's Roost
+S11
+S13
+S14
+S15
+S16
+S18
+Evenfall Hall
+Morne
+Wrath Rock
+Rain House
+Greenstone
+S30
+S31
+S37
+S38
+Bronzegate
+Fellwood
+S1
+S5
+S6
+S2
+
+Dorne
+
+Sunspear
+Plankytown
+Stinkwater
+Ghost Hill
+Spottswood
+Ghaston Grey
+D21
+D22
+D23
+D24
+D35
+D36
+D37
+D38
+D39
+Yronwood
+Wyl
+D1
+D2
+D3
+D6
+D7
+D8
+D12
+D13
+Starfall
+High Hermitage
+Blackmont
+D4
+D9
+D10
+D11
+D14
+D15
+D25
+D40
+D41
+D42
+Skyreach
+Kingsgrave
+Drinkwater
+D5
+D16
+D17
+D26
+D27
+D28
+D29
+Godsgrace
+The Tor
+D18
+D19
+D20
+D30
+D31
+D32
+D33
+D34
+Hellholt
+Sandstone
+Wells
+Ladybright
+Vaith
+D43
+D44
+D45
+D46
+D47
+D51
+D52
+D53
+D54
+D55
+D56
+D57
+Salt Shore
+Lemonwood
+D48
+D49
+D50
+D58
+D59
+D60
+D61
