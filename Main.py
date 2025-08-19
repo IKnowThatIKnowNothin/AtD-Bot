@@ -1,9 +1,6 @@
 import praw
 import os
 import re
-import schedule
-import time
-import threading
 import Battle
 import Duel
 import Joust
@@ -11,7 +8,6 @@ import time
 import Army
 import random
 import Globals
-import SidebarDate
 import TP
 from movementcalculator import land_movement
 from movementcalculator import naval_movement
@@ -28,39 +24,6 @@ reddit = praw.Reddit(user_agent=os.environ['AGENT_NAME'] ,
 print(reddit.user.me())
 print("---\n")
 
-def run_continuously(interval=1):
-    """
-    Note: I copied this code fragment from the Schedule library's documentation.
-    It works for what we need here just fine. Should clean up this and the overall
-    control flow/comments queue processing stuff in general at some point.
-
-    Continuously run, while executing pending jobs at each
-    elapsed time interval.
-    @return cease_continuous_run: threading. Event which can
-    be set to cease continuous run. Please note that it is
-    *intended behavior that run_continuously() does not run
-    missed jobs*. For example, if you've registered a job that
-    should run every minute and you set a continuous run
-    interval of one hour then your job won't be run 60 times
-    at each interval but only once.
-    """
-    cease_continuous_run = threading.Event()
-
-    class ScheduleThread(threading.Thread):
-        @classmethod
-        def run(cls):
-            while not cease_continuous_run.is_set():
-                schedule.run_pending()
-                time.sleep(interval)
-
-    continuous_thread = ScheduleThread()
-    continuous_thread.start()
-    return cease_continuous_run
-
-#We try and update the date more frequently than once a day just in case one fails or gets missed
-schedule.every(6).hours.do(SidebarDate.update_ic_date,reddit)
-
-stop_run_continuously = run_continuously()
 
 subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods')
 for comment in subreddit.stream.comments(skip_existing=True):
@@ -238,5 +201,4 @@ for comment in subreddit.stream.comments(skip_existing=True):
         print(excep)
         continue
 
-    
-stop_run_continuously.set()
+        

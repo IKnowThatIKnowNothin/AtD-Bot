@@ -6,6 +6,8 @@ import time
 import math
 import praw
 
+###This is no longer in use but will be kept in the repository for archival purposes
+
 def ic_date(date_ooc):
   #Converts IRL UTC time to in-game date system
   #First find difference from provided time from 00:00 UTC 02/01/23
