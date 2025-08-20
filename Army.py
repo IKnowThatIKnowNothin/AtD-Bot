@@ -7,9 +7,12 @@ class Army:
         name = ""
         power = 0
         bonus = 0
+        miscBonus = 0
+        roundsWon = 0
         continueFighting = True
         morale = 100
-        def __init__(self,commanderName,threshold,name,power,bonus):
+        startPoint = 100
+        def __init__(self,commanderName,threshold,name,power,miscBonus):
                 if (commanderName == "None"):
                         self.commanderName = "The {} Commander".format(name)
                 else:
@@ -18,7 +21,7 @@ class Army:
                 self.threshold = threshold
                 self.name = name
                 self.power = power
-                self.armyBonus = bonus
+                self.armyBonus = miscBonus
                 self.bonus = self.armyBonus
         def attack_roll(self):
                 random.seed()
