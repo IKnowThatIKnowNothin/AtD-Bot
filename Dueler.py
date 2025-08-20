@@ -28,7 +28,7 @@ class Dueler:
 			dmg +=  random.randint(1,5)
 		dmg += self.extradmg
 		if dmg < 1:
-			dmg = 1
+			dmg = 0
 		return dmg
 	def apply_injury(self):
 		if self.ignoreInjury > 0:

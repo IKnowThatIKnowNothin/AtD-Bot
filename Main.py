@@ -25,7 +25,7 @@ print(reddit.user.me())
 print("---\n")
 
 
-subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods')
+subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods+FireAndBlood+FireAndBloodMods+CrownedStag')
 for comment in subreddit.stream.comments(skip_existing=True):
     try:
         comment.refresh()
@@ -90,7 +90,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 
             elif(re.search("Naval Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Naval"
-                battleInfo = re.match("(.*) ([\-]?\d+)(.*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d+)(.*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
+                battleInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
                 if(battleInfo):
                     print ("Running Naval battle\n")
                     battle = Battle.Battle()
@@ -105,7 +105,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                         
             elif(re.search("Land Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Land"
-                battleInfo = re.match("(.*) ([\-]?\d+)(.*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d+)(.*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
+                battleInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*)\n+(.*) (\d+) ([\+\-]?\d*)",comment.body)
                 if(battleInfo):
                     print ("Running Land battle\n")
                     battle = Battle.Battle()
@@ -136,7 +136,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough.
 
             elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) (.*) (.*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) (.*) (.*)",comment.body)
+                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)",comment.body)
                 if(duelInfo):
                     print ("Running Live Duel\n")
                     duel = Duel.Duel()

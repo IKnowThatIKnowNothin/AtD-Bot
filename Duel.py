@@ -15,6 +15,23 @@ class Duel:
                 roundmessage += "**{}** Roll: {} ({}{:+})\n \n".format(dueler2.name,roll2,raw2,dueler2.bonus)
                 roundmessage += "\n\n *** \n\n"
                 
+                if(raw1 == 20 and raw2 == 1):
+                        # Dueler 1 has won
+                        dueler2.continueFighting = False
+                        roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler1.name,dueler2.name)
+                        roundmessage += "**Winner: {}**\n \n".format(dueler1.name)
+                        roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler1.morale)
+                        roundmessage += "Rounds taken: {} \n \n".format(roundCount)
+                        return roundmessage
+                if(raw2 == 20 and raw1 == 1):
+                        # Dueler 2 has won
+                        dueler1.continueFighting = False
+                        roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler2.name,dueler1.name)
+                        roundmessage += "**Winner: {}**\n \n".format(dueler2.name)
+                        roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler2.morale)
+                        roundmessage += "Rounds taken: {} \n \n".format(roundCount)
+                        return roundmessage
+
                 if roll1 > roll2:
                         winner = dueler1
                         loser = dueler2
@@ -54,7 +71,7 @@ class Duel:
                 if (dueler2.morale <= 0) or (dueler2.morale <= dueler2.startpoint + dueler2.threshold):
                         #Dueler 1 has won
                         dueler2.continueFighting = False
-                        roundmessage += "{} defeats {}, bringing an end to the battle.\n \n".format(dueler1.name,dueler2.name)
+                        roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler1.name,dueler2.name)
                         roundmessage += "**Winner: {}**\n \n".format(dueler1.name)
                         roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler1.morale)
                         roundmessage += "Rounds taken: {} \n \n".format(roundCount)
@@ -62,7 +79,7 @@ class Duel:
                 elif (dueler1.morale <= 0) or (dueler1.morale <= dueler1.startpoint + dueler1.threshold):
                         #Dueler 2 has won
                         dueler1.continueFighting = False
-                        roundmessage += "{} defeats {}, bringing an end to the battle.\n \n".format(dueler2.name,dueler1.name)
+                        roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler2.name,dueler1.name)
                         roundmessage += "**Winner: {}**\n \n".format(dueler2.name)
                         roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler2.morale)
                         roundmessage += "Rounds taken: {} \n \n".format(roundCount)
@@ -75,83 +92,14 @@ class Duel:
                 dueler1 = Dueler.Dueler(duelInfo.group(1), int(duelInfo.group(2)), int(duelInfo.group(3)))
                 dueler2 = Dueler.Dueler(duelInfo.group(6), int(duelInfo.group(7)), int(duelInfo.group(8))) ##
                 
-                print(duelInfo.group(4))
-                print(duelInfo.group(5))
-                print(duelInfo.group(9)) ##
-                print(duelInfo.group(10)) ##
-
-                for i in range(4, 6):
-                        if duelInfo.group(i) == "Masterwork":
-                                dueler1.extradmg += 1
-                        elif duelInfo.group(i) == "VS":
-                                dueler1.extradmg += 3
-                        elif duelInfo.group(i) == "Duelist1":
-                                dueler1.bonus += 2
-                        elif duelInfo.group(i) == "Duelist2":
-                                dueler1.bonus += 4
-                        elif duelInfo.group(i) == "Duelist3":
-                                dueler1.bonus += 6
-                                dueler1.critThreshold = 19
-                        elif duelInfo.group(i) == "IronWill1":
-                                dueler1.morale += 8
-                                dueler1.ignoreInjury += 1
-                        elif duelInfo.group(i) == "IronWill2":
-                                dueler1.morale += 25
-                                dueler1.ignoreInjury += 2
-                        elif duelInfo.group(i) == "IronWill3":
-                                dueler1.morale += 65
-                                dueler1.ignoreInjury += 3
-                                dueler1.bonus += 1
-                        elif duelInfo.group(i) ==  "Bulwark1":
-                                dueler2.bonus -= 1
-                                dueler1.extradmg += 2
-                        elif duelInfo.group(i) == "Bulwark2":
-                                dueler2.bonus -= 2
-                                dueler1.extradmg += 3
-                        elif duelInfo.group(i) == "Bulwark3":
-                                dueler2.bonus -= 3
-                                dueler1.extradmg += 3
-                                dueler1.doubleCrit = True
-                        elif duelInfo.group(i) == "Blunted":
-                                dueler1.extradmg -= 3
-                        dueler1.startpoint = dueler1.morale
+                dueler1.morale += duelInfo.group(4)
+                dueler1.extradmg += duelInfo.group(5)
+                dueler2.morale += duelInfo.group(9)
+                dueler2.extradmg += duelInfo.group(10)
 
 
-                for j in range(9, 11):
-                        if duelInfo.group(j) == "Masterwork": ##
-                                dueler2.extradmg += 1
-                        elif duelInfo.group(j) == "VS": ##
-                                dueler2.extradmg += 3
-                        elif duelInfo.group(j) == "Duelist1": ##
-                                dueler2.bonus += 2
-                        elif duelInfo.group(j) == "Duelist2": ##
-                                dueler2.bonus += 4
-                        elif duelInfo.group(j) == "Duelist3": ##
-                                dueler2.bonus += 6
-                                dueler2.critThreshold = 19
-                        elif duelInfo.group(j) == "IronWill1": ##
-                                dueler2.morale += 8
-                                dueler2.ignoreInjury += 1
-                        elif duelInfo.group(j) == "IronWill2": ##
-                                dueler2.morale += 25
-                                dueler2.ignoreInjury += 2
-                        elif duelInfo.group(j) == "IronWill3": ##
-                                dueler2.morale += 35
-                                dueler2.ignoreInjury += 3
-                                dueler2.bonus += 1
-                        elif duelInfo.group(j) ==  "Bulwark1": ##
-                                dueler1.bonus -= 1
-                                dueler2.extradmg += 1
-                        elif duelInfo.group(j) == "Bulwark2": ##
-                                dueler1.bonus -= 2
-                                dueler2.extradmg += 3
-                        elif duelInfo.group(j) == "Bulwark3": ##
-                                dueler1.bonus -= 3
-                                dueler2.extradmg += 3
-                                dueler2.doubleCrit = True
-                        elif duelInfo.group(j) == "Blunted": ##
-                                dueler2.extradmg -= 3
-                        dueler2.startpoint = dueler2.morale
+                dueler1.startpoint += dueler1.morale
+                dueler2.startpoint += dueler2.morale
 
                 print(dueler1.doubleCrit)
                 print(dueler2.doubleCrit)
