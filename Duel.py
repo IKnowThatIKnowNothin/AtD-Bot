@@ -92,10 +92,10 @@ class Duel:
                 dueler1 = Dueler.Dueler(duelInfo.group(1), int(duelInfo.group(2)), int(duelInfo.group(3)))
                 dueler2 = Dueler.Dueler(duelInfo.group(6), int(duelInfo.group(7)), int(duelInfo.group(8))) ##
                 
-                dueler1.morale += duelInfo.group(4)
-                dueler1.extradmg += duelInfo.group(5)
-                dueler2.morale += duelInfo.group(9)
-                dueler2.extradmg += duelInfo.group(10)
+                dueler1.morale += int(duelInfo.group(4))
+                dueler1.extradmg += int(duelInfo.group(5))
+                dueler2.morale += int(duelInfo.group(9))
+                dueler2.extradmg += int(duelInfo.group(10))
 
 
                 dueler1.startpoint += dueler1.morale
