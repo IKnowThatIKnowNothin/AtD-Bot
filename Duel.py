@@ -47,8 +47,8 @@ class Duel:
                 dmgDealt = winner.damage_roll()
                 roundmessage += "**Damage** Roll: {} ({}{:+})\n \n".format(dmgDealt,dmgDealt-winner.extradmg,winner.extradmg)
                 if (win_raw >= winner.critThreshold):
-                        loser.apply_injury()
                         roundmessage += "\n\n {} has a critical hit \n\n".format(winner.name)
+                        loser.apply_injury()
                         if(winner.doubleCrit):
                                 roundmessage += "\n \n As a T3 Bulwark they deal double damage! \n\n"
                                 dmgDealt *= 2
@@ -57,18 +57,18 @@ class Duel:
                 roundmessage += "\n\n {} hits {} \n\n".format(winner.name,loser.name)
 
                 if raw1 == 1:
-                        dueler1.apply_injury()
                         roundmessage += "\n\n {} has a critical miss \n\n".format(dueler1.name)
+                        dueler1.apply_injury()
                 if raw2 == 1:
-                        dueler2.apply_injury()
                         roundmessage += "\n\n {} has a critical miss \n\n".format(dueler2.name)
+                        dueler2.apply_injury()
 
                 roundmessage += "\n\n The morale of the duellists currently stand as the following \n\n"
                 roundmessage += "**{}** Morale: {} \n \n".format(dueler1.name,dueler1.morale)
                 roundmessage += "**{}** Morale: {} \n \n".format(dueler2.name,dueler2.morale)
                 roundmessage += "--- \n \n"  
 
-                if (dueler2.morale <= 0) or (dueler2.morale <= dueler2.startpoint + dueler2.threshold):
+                if (dueler2.morale <= 0) or (dueler2.morale <= dueler2.startpoint + dueler2.threshold) or dueler2.continueFighting == False:
                         #Dueler 1 has won
                         dueler2.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler1.name,dueler2.name)
@@ -76,7 +76,7 @@ class Duel:
                         roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler1.morale)
                         roundmessage += "Rounds taken: {} \n \n".format(roundCount)
 
-                elif (dueler1.morale <= 0) or (dueler1.morale <= dueler1.startpoint + dueler1.threshold):
+                elif (dueler1.morale <= 0) or (dueler1.morale <= dueler1.startpoint + dueler1.threshold or dueler1.continueFighting == False):
                         #Dueler 2 has won
                         dueler1.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler2.name,dueler1.name)
