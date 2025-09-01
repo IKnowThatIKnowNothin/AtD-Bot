@@ -73,6 +73,7 @@ class Duel:
                                 print("A1")
                         if (dueler2.morale <= (dueler2.startpoint + dueler2.threshold)):
                                 print("A2")
+                                print(dueler2.startpoint, " ", dueler2.threshold)
                         if (dueler2.continueFighting == False):
                                 print("A3")
                         #Dueler 1 has won
