@@ -68,7 +68,7 @@ class Duel:
                 roundmessage += "**{}** Morale: {} \n \n".format(dueler2.name,dueler2.morale)
                 roundmessage += "--- \n \n"  
 
-                if (dueler2.morale <= 0) or (dueler2.morale <= dueler2.startpoint + dueler2.threshold) or dueler2.continueFighting == False:
+                if (dueler2.morale <= 0) or (dueler2.morale <= (dueler2.startpoint + dueler2.threshold)) or (dueler2.continueFighting == False):
                         #Dueler 1 has won
                         dueler2.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler1.name,dueler2.name)
@@ -76,7 +76,7 @@ class Duel:
                         roundmessage += "**Winner's Remaining Morale: {}**\n \n".format(dueler1.morale)
                         roundmessage += "Rounds taken: {} \n \n".format(roundCount)
 
-                elif (dueler1.morale <= 0) or (dueler1.morale <= dueler1.startpoint + dueler1.threshold or dueler1.continueFighting == False):
+                elif (dueler1.morale <= 0) or (dueler1.morale <= (dueler1.startpoint + dueler1.threshold)) or (dueler1.continueFighting == False):
                         #Dueler 2 has won
                         dueler1.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler2.name,dueler1.name)
