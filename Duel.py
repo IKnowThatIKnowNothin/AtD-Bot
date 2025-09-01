@@ -69,13 +69,6 @@ class Duel:
                 roundmessage += "--- \n \n"  
 
                 if (dueler2.morale <= 0) or (dueler2.morale <= (dueler2.startpoint + dueler2.threshold)) or (dueler2.continueFighting == False):
-                        if (dueler2.morale <= 0):
-                                print("A1")
-                        if (dueler2.morale <= (dueler2.startpoint + dueler2.threshold)):
-                                print("A2")
-                                print(dueler2.startpoint, " ", dueler2.threshold)
-                        if (dueler2.continueFighting == False):
-                                print("A3")
                         #Dueler 1 has won
                         dueler2.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler1.name,dueler2.name)
@@ -84,12 +77,6 @@ class Duel:
                         roundmessage += "Rounds taken: {} \n \n".format(roundCount)
 
                 elif (dueler1.morale <= 0) or (dueler1.morale <= (dueler1.startpoint + dueler1.threshold)) or (dueler1.continueFighting == False):
-                        if (dueler1.morale <= 0):
-                                print("B1")
-                        if (dueler1.morale <= (dueler1.startpoint + dueler1.threshold)):
-                                print("B2")
-                        if (dueler1.continueFighting == False):
-                                print("B3")
                         #Dueler 2 has won
                         dueler1.continueFighting = False
                         roundmessage += "{} defeats {}, bringing an end to the duel.\n \n".format(dueler2.name,dueler1.name)
@@ -111,8 +98,8 @@ class Duel:
                 dueler2.extradmg += int(duelInfo.group(10))
 
 
-                dueler1.startpoint += dueler1.morale
-                dueler2.startpoint += dueler2.morale
+                dueler1.startpoint = dueler1.morale
+                dueler2.startpoint = dueler2.morale
 
                 print(dueler1.doubleCrit)
                 print(dueler2.doubleCrit)
