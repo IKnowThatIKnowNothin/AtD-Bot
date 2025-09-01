@@ -48,7 +48,7 @@ class Duel:
                 roundmessage += "**Damage** Roll: {} ({}{:+})\n \n".format(dmgDealt,dmgDealt-winner.extradmg,winner.extradmg)
                 if (win_raw >= winner.critThreshold):
                         roundmessage += "\n\n {} has a critical hit \n\n".format(winner.name)
-                        loser.apply_injury()
+                        roundmessage += loser.apply_injury()
                         if(winner.doubleCrit):
                                 roundmessage += "\n \n As a T3 Bulwark they deal double damage! \n\n"
                                 dmgDealt *= 2
@@ -58,10 +58,10 @@ class Duel:
 
                 if raw1 == 1:
                         roundmessage += "\n\n {} has a critical miss \n\n".format(dueler1.name)
-                        dueler1.apply_injury()
+                        roundmessage += dueler1.apply_injury()
                 if raw2 == 1:
                         roundmessage += "\n\n {} has a critical miss \n\n".format(dueler2.name)
-                        dueler2.apply_injury()
+                        roundmessage += dueler2.apply_injury()
 
                 roundmessage += "\n\n The morale of the duellists currently stand as the following \n\n"
                 roundmessage += "**{}** Morale: {} \n \n".format(dueler1.name,dueler1.morale)
