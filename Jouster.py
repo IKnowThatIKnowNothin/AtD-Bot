@@ -40,12 +40,12 @@ class Jouster:
                         return 0
         def death_roll(self):
                 injuryRoll = random.randint(1,20)
-                if(injuryRoll <= 10 and injuryRoll >= 5):
+                if(injuryRoll <= 11 and injuryRoll >= 6):
                         self.minorInjuries += 1
                         self.continueFighting = False
                         self.ableToFight = False
                         return 0
-                elif(injuryRoll <= 4 and injuryRoll >= 2):
+                elif(injuryRoll <= 5 and injuryRoll >= 2):
                         self.moderateInjuries += 1
                         self.continueFighting = False
                         self.ableToFight = False
@@ -54,12 +54,6 @@ class Jouster:
                         self.majorInjuries += 1
                         self.continueFighting = False
                         self.ableToFight = False
-                        injuryRoll = random.randint(1,10)
-                        if (injuryRoll == 1):
-                                self.alive = False
-                                return 0
-                        else:
-                                return 0
                 else:
                         self.continueFighting = False
                         self.ableToFight = False
