@@ -172,25 +172,27 @@ class Joust:
                         
                 elif(jouster1.majorInjuries >= 1):
                         battlemessage += "{} is maimed in the joust.\n\n".format(jouster1.name)
-                        injuryRoll = random.randint(2,10)
+                        injuryRoll = random.randint(1,10)
                 elif(jouster2.majorInjuries >= 1):
                         battlemessage += "{} is maimed in the joust.\n\n".format(jouster2.name)
-                        injuryRoll = random.randint(2,10)
+                        injuryRoll = random.randint(1,10)
                         
-                if(injuryRoll == 2):
+                if(injuryRoll == 1):
                         battlemessage += "They suffer permanent brain damage.\n\n"
-                elif(injuryRoll == 3):
+                elif(injuryRoll == 2):
                         battlemessage += "They suffer partial paralysis.\n\n"
+                elif(injuryRoll == 3):
+                        battlemessage += "They suffer internal organ damage.\n\n"
                 elif(injuryRoll == 4):
-                        battlemessage += "They lose a leg.\n\n"
+                        battlemessage += "They suffer groin damage and are infertile.\n\n"        
                 elif(injuryRoll == 5):
-                        battlemessage += "They lose an arm.\n\n"
+                        battlemessage += "They lose a leg.\n\n"
                 elif(injuryRoll == 6):
-                        battlemessage += "They lose a hand/foot.\n\n"
+                        battlemessage += "They lose an arm/hand.\n\n"
                 elif(injuryRoll == 7):
-                        battlemessage += "They break their hip.\n\n"
-                elif(injuryRoll == 8):
                         battlemessage += "They lose an eye/their sight.\n\n"
+                elif(injuryRoll == 9):
+                        battlemessage += "They lose their nose.\n\n"
                 elif(injuryRoll == 9):
                         battlemessage += "They lose hearing.\n\n"
                 elif(injuryRoll == 10):
