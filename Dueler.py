@@ -35,7 +35,7 @@ class Dueler:
             dmg = 0
         return dmg
 
-    def apply_injury(self):
+    def apply_injury(self, roundmessage):
         if self.ignoreInjury > 0:
             self.ignoreInjury -= 1
         else:
