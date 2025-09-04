@@ -30,7 +30,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
     try:
         comment.refresh()
     
-        if((re.search('/u/modbotshit',comment.body,re.IGNORECASE) or re.search('u/modbotshit',comment.body,re.IGNORECASE))): #Make sure we're tagged in order to run. Non caps-sensitive.
+        if((re.search('/u/botofmanyfaces',comment.body,re.IGNORECASE) or re.search('u/botofmanyfaces',comment.body,re.IGNORECASE))): #Make sure we're tagged in order to run. Non caps-sensitive.
     
             if(re.search("Roll",comment.body,re.IGNORECASE)):
               try:
