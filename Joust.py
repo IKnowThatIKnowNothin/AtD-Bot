@@ -118,7 +118,7 @@ class Joust:
                 jouster1 = Jouster.Jouster(joustInfo.group(1), int(group2))
                 jouster2 = Jouster.Jouster(joustInfo.group(3), int(group4))
                 battlemessage = "#Joust Between {} and {} \n \n".format(jouster1.name,jouster2.name)
-                battlemessage += "This bot uses the joust mechanics found here [here](https://docs.google.com/document/d/1oDmrYNC2CKryBX6ZII3Guq8BHHWAo1zsZo1rFDXTwko/) \n \n"
+                battlemessage += "This bot uses the joust mechanics found here [here](https://www.reddit.com/r/FireAndBlood/wiki/tourney_rules#wiki_jousts) \n \n"
                 battlemessage += "--- \n \n"
                 notbattlemessage = ""
                 roundOver = True
@@ -161,42 +161,42 @@ class Joust:
                         battlemessage += "**{} is killed in the joust.**\n\n".format(jouster2.name)
                 
                 elif(jouster1.minorInjuries >= 1):
-                        battlemessage += "{} is moderately injured in the joust.\n\n".format(jouster1.name)
+                        battlemessage += "{} suffers a minor injury in the joust.\n\n".format(jouster1.name)
                 elif(jouster2.minorInjuries >= 1):
-                        battlemessage += "{} is moderately injured in the joust.\n\n".format(jouster2.name)
+                        battlemessage += "{} suffers a minor injury  in the joust.\n\n".format(jouster2.name)
                         
                 elif(jouster1.moderateInjuries >= 1):
-                        battlemessage += "{} is seriously injured in the joust.\n\n".format(jouster1.name)
+                        battlemessage += "{} suffers a major injury in the joust.\n\n".format(jouster1.name)
                 elif(jouster2.moderateInjuries >= 1):
-                        battlemessage += "{} is seriously injured in the joust.\n\n".format(jouster2.name)
+                        battlemessage += "{} suffers a major injury in the joust.\n\n".format(jouster2.name)
                         
                 elif(jouster1.majorInjuries >= 1):
-                        battlemessage += "{} is maimed in the joust.\n\n".format(jouster1.name)
+                        battlemessage += "{} is critically injured in the joust.\n\n".format(jouster1.name)
                         injuryRoll = random.randint(1,10)
                 elif(jouster2.majorInjuries >= 1):
-                        battlemessage += "{} is maimed in the joust.\n\n".format(jouster2.name)
+                        battlemessage += "{} is critically injured in the joust.\n\n".format(jouster2.name)
                         injuryRoll = random.randint(1,10)
                         
                 if(injuryRoll == 1):
                         battlemessage += "They suffer permanent brain damage.\n\n"
                 elif(injuryRoll == 2):
-                        battlemessage += "They suffer partial paralysis.\n\n"
+                        battlemessage += "They suffer permanent spinal damage/paralysation.\n\n"
                 elif(injuryRoll == 3):
                         battlemessage += "They suffer internal organ damage.\n\n"
                 elif(injuryRoll == 4):
                         battlemessage += "They suffer groin damage and are infertile.\n\n"        
                 elif(injuryRoll == 5):
-                        battlemessage += "They lose a leg.\n\n"
+                        battlemessage += "They lose a leg/foot.\n\n"
                 elif(injuryRoll == 6):
                         battlemessage += "They lose an arm/hand.\n\n"
                 elif(injuryRoll == 7):
-                        battlemessage += "They lose an eye/their sight.\n\n"
+                        battlemessage += "They lose an eye.\n\n"
                 elif(injuryRoll == 9):
                         battlemessage += "They lose their nose.\n\n"
                 elif(injuryRoll == 9):
-                        battlemessage += "They lose hearing.\n\n"
+                        battlemessage += "They lose an ear/hearing.\n\n"
                 elif(injuryRoll == 10):
-                        battlemessage += "They suffer extreme scarring/mutilation.\n\n"
+                        battlemessage += "They suffer severe scarring/mutilation.\n\n"
                           
                 ##reset_duel_phase()
                 self.joustPhase = 0
