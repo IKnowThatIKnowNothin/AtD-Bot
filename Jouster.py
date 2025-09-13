@@ -45,13 +45,17 @@ class Jouster:
                         self.continueFighting = False
                         self.ableToFight = False
                         return 0
-                elif(injuryRoll <= 5 and injuryRoll >= 2):
+                elif(injuryRoll <= 5 and injuryRoll >= 3):
                         self.moderateInjuries += 1
                         self.continueFighting = False
                         self.ableToFight = False
                         return 0
-                elif(injuryRoll == 1):
+                elif(injuryRoll == 2):
                         self.majorInjuries += 1
+                        self.continueFighting = False
+                        self.ableToFight = False
+                elif(injuryRoll == 1):
+                        self.alive = False
                         self.continueFighting = False
                         self.ableToFight = False
                 else:
