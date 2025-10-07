@@ -40,27 +40,25 @@ class Jouster:
                         return 0
         def death_roll(self):
                 injuryRoll = random.randint(1,20)
-                if(injuryRoll <= 11 and injuryRoll >= 6):
+                if (injuryRoll <= 5 and injuryRoll >= 2):
                         self.minorInjuries += 1
                         self.continueFighting = False
                         self.ableToFight = False
                         return 0
-                elif(injuryRoll <= 5 and injuryRoll >= 3):
-                        self.moderateInjuries += 1
-                        self.continueFighting = False
-                        self.ableToFight = False
-                        return 0
-                elif(injuryRoll == 2):
-                        self.majorInjuries += 1
-                        self.continueFighting = False
-                        self.ableToFight = False
-                elif(injuryRoll == 1):
-                        self.alive = False
-                        self.continueFighting = False
-                        self.ableToFight = False
-                else:
-                        self.continueFighting = False
-                        self.ableToFight = False
-                        return 0
-            
-               
+                elif (injuryRoll == 1):
+                        critRoll = random.randint(1, 20)
+                        if(critRoll >= 6):
+                                self.moderateInjuries += 1
+                                self.continueFighting = False
+                                self.ableToFight = False
+                                return 0
+                        elif (critRoll <= 5 and critRoll >= 2):
+                                self.majorInjuries += 1
+                                self.continueFighting = False
+                                self.ableToFight = False
+                                return 0
+                        elif (critRoll == 1):
+                                self.alive = False
+                                self.continueFighting = False
+                                self.ableToFight = False
+                                return 0
