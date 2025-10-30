@@ -17,14 +17,14 @@ class Battle:
                         print("")
                         
                 else:      
-                        noDice = 2
+                        noDice = 4
                         number = 0
                         printedBonus = 0
                         numberBonus = 0
                         runningBonus = "("           
                         while(noDice != number):  
                             random.seed()
-                            printed = random.randint(1,50)
+                            printed = random.randint(1,25)
                             printedBonus += printed
                             if (noDice - number == 1):
                                 runningBonus += "{})".format(printed)
