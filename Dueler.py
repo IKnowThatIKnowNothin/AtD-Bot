@@ -45,7 +45,7 @@ class Dueler:
         raw = random.randint(1, 20)
         total = raw + int(self.skill_count)
 
-        roundmessage += "**Injury** Roll: {} (1d20={} + Skills={})\n \n".format(total, raw, self.skill_count)
+        roundmessage += "**Injury** Roll: {} ({}+{})\n \n".format(total, raw, self.skill_count)
 
         if total <= 2:
             roundmessage += "{} is killed!\n \n".format(self.name)
