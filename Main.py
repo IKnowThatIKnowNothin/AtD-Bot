@@ -25,7 +25,7 @@ print(reddit.user.me())
 print("---\n")
 
 
-subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods+FireAndBlood+FireAndBloodMods+CrownedStag')
+subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods+FireAndBlood+FireAndBloodMods+CrownedStag+MandarinB2')
 for comment in subreddit.stream.comments(skip_existing=True):
     try:
         comment.refresh()
