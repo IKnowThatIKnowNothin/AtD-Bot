@@ -139,8 +139,8 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 is_blunted = bool(re.search("Blunted Duel", comment.body, re.IGNORECASE))
 
                 duelInfo = re.match(
-                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: (\d+))?\n+"
-                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: (\d+))?",
+                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: ([\+]?\d+))?\n+"
+                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: ([\+]?\d+))?",
                     comment.body
                 )
 
