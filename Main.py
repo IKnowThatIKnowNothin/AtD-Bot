@@ -135,7 +135,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     comment.reply("Improperly formatted joust info.")
                 time.sleep(60) 
 
-                        elif(re.search("Blunted Duel",comment.body,re.IGNORECASE) or re.search("Duel",comment.body,re.IGNORECASE)):
+            elif(re.search("Blunted Duel",comment.body,re.IGNORECASE) or re.search("Duel",comment.body,re.IGNORECASE)):
                 is_blunted = bool(re.search("Blunted Duel", comment.body, re.IGNORECASE))
 
                 duelInfo = re.match(
