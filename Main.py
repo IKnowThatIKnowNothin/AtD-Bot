@@ -25,7 +25,7 @@ print(reddit.user.me())
 print("---\n")
 
 
-subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods+FireAndBlood+FireAndBloodMods+CrownedStag+MandarinB2')
+subreddit = reddit.subreddit('AfterTheDance+AfterTheDanceMods+awoiafpowers+NinePennyKings+NinePennyKingsMods+FireAndBlood+FireAndBloodMods+CrownedStag')
 for comment in subreddit.stream.comments(skip_existing=True):
     try:
         comment.refresh()
@@ -39,13 +39,13 @@ for comment in subreddit.stream.comments(skip_existing=True):
                       roundmessage= ""
                       for j in battleInfo:
                           bonus = 0
-                          noDice = int(j[0]) #(battleInfo.group(1))
-                          sizeDice = int(j[2]) #(battleInfo.group(3))
+                          noDice = int(j[0]) 
+                          sizeDice = int(j[2]) 
                           if (j[3]):
-                              bonus = int(j[3]) #(battleInfo.group(4))
+                              bonus = int(j[3]) 
                           else:
                               bonus = 0
-                          name = j[4] #battleInfo.group(5)
+                          name = j[4] 
                           number = 0
                           printedBonus = 0
                           numberBonus = 0
@@ -78,14 +78,14 @@ for comment in subreddit.stream.comments(skip_existing=True):
                               roundmessage += "{}d{} {}: **{}**".format(noDice,sizeDice,name,printedBonus)
                               roundmessage += "\n\n *** \n\n"
 
-                  comment.reply(roundmessage)#Post all at once
+                  comment.reply(roundmessage)
                   print("---\n")
               
         
               except:
                 print ("Improperly formatted roll\n---\n")
                 comment.reply("Improperly formatted Roll.")
-              time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
+              time.sleep(60) 
                 
                 
             elif(re.search("Naval Battle",comment.body,re.IGNORECASE)):
@@ -95,13 +95,13 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print ("Running Naval battle\n")
                     battle = Battle.Battle()
                     print ("Quick Mode\n")
-                    comment.reply(battle.run(battleInfo))#Post all at once
+                    comment.reply(battle.run(battleInfo))
 
                     print("---\n")
                 else:
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
-                time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
+                time.sleep(60)
                         
             elif(re.search("Land Battle",comment.body,re.IGNORECASE)):
                 Globals.battleType = "Land"
@@ -115,7 +115,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 else:
                     print ("Improperly formatted battle\n---\n")
                     comment.reply("Improperly formatted battle info.")
-                time.sleep(60) #We sleep for 3 minutes after each battle so we don't get screwed by rate limits. Delete this when karma is high enough.
+                time.sleep(60)
 
           
             elif(re.search("Joust",comment.body,re.IGNORECASE)):
@@ -127,31 +127,45 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     
                     Globals.resultsMode = False
                     print ("Quick Mode\n")
-                    comment.reply(joust.run(joustInfo))#Post all at once
+                    comment.reply(joust.run(joustInfo))
 
                     print("--- \n")
                 else:
                     print ("Improperly formatted joust\n---\n")
                     comment.reply("Improperly formatted joust info.")
-                time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough.
+                time.sleep(60) 
 
-            elif(re.search("Duel",comment.body,re.IGNORECASE)):
-                duelInfo = re.match("(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)\n+(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)",comment.body)
+                        elif(re.search("Blunted Duel",comment.body,re.IGNORECASE) or re.search("Duel",comment.body,re.IGNORECASE)):
+                is_blunted = bool(re.search("Blunted Duel", comment.body, re.IGNORECASE))
+
+                duelInfo = re.match(
+                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: (\d+))?\n+"
+                    r"(.*) ([\-]?\d+) ([\+\-]?\d*) ([\+\-]?\d*) ([\+\-]?\d*)(?: (\d+))?",
+                    comment.body
+                )
+
                 if(duelInfo):
-                    print ("Running Live Duel\n")
                     duel = Duel.Duel()
+
+                    if is_blunted:
+                        duel.LIVE_STEEL = False
+                        print ("Running Blunted Duel\n")
+                    else:
+                        duel.LIVE_STEEL = True
+                        print ("Running Live Duel\n")
 
                     Globals.resultsMode = False
                     print ("Quick Mode\n")
                     result = duel.run(duelInfo)
-                    #print(result)
-                    comment.reply(result)#Post all at once
+
+                    comment.reply(result)
 
                     print("--- \n")
                 else:
                     print ("\nImproperly formatted duel\n--- \n")
                     comment.reply("Improperly formatted duel info.")
-                time.sleep(60) #We sleep for 3 minutes after each duel so we don't get screwed by rate limits. Delete this when karma is high enough
+
+                time.sleep(60)
             
 
             elif(re.search("TP", comment.body, re.IGNORECASE)):
@@ -162,7 +176,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 except Exception as e:
                     print("Error in TP handler:", e)
                     comment.reply("An error occurred while processing your TP request. Please double-check your format.")
-                time.sleep(60) #We sleep for 3 minutes after each TP so we don't get screwed by rate limits. Delete this when karma is high enough
+                time.sleep(60) 
 
             elif re.search("Land Movement", comment.body, re.IGNORECASE):
                 try:
@@ -175,7 +189,7 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print(f"[ERROR] Land Movement handler: {e}")
                     traceback.print_exc()
                     comment.reply(f"Unexpected error occurred:\n\n{e}\n\nPlease verify your format.")
-                time.sleep(60) #We sleep for 3 minutes after each Move so we don't get screwed by rate limits. Delete this when karma is high enough
+                time.sleep(60)
 
             elif re.search("Naval Movement", comment.body, re.IGNORECASE):
                 try:
@@ -189,14 +203,14 @@ for comment in subreddit.stream.comments(skip_existing=True):
                     print(f"[ERROR] Naval Movement handler: {e}")
                     traceback.print_exc()
                     comment.reply(f"Unexpected error occurred:\n\n{e}\n\nPlease verify your format.")
-                time.sleep(60) #We sleep for 3 minutes after each Move so we don't get screwed by rate limits. Delete this when karma is high enough
+                time.sleep(60) 
  
                 
             else:
                 comment.reply("Improperly formatted info. Please state which function you wish to use.")
                 print("Improperly formatted info\n---\n")
 
-    except praw.exceptions.ClientException as excep:  # fix for deleted comments
+    except praw.exceptions.ClientException as excep:  
         print('SKIPPING due to ClientException:')
         print(excep)
         continue
