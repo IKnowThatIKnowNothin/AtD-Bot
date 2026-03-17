@@ -1,3 +1,4 @@
+import prawcore
 import praw
 import os
 import re
@@ -233,8 +234,23 @@ for comment in subreddit.stream.comments(skip_existing=True):
                 print("Improperly formatted info\n---\n")
 
     except praw.exceptions.ClientException as excep:
-        print('SKIPPING due to ClientException:')
-        print(excep)
-        continue
+    print('SKIPPING due to ClientException:')
+    print(excep)
+    continue
+    except prawcore.exceptions.ServerError as excep:
+    print('SKIPPING due to Reddit ServerError (500):')
+    print(excep)
+    time.sleep(30)
+    continue
+    except prawcore.exceptions.RequestException as excep:
+    print('SKIPPING due to RequestException:')
+    print(excep)
+    time.sleep(30)
+    continue
+    except prawcore.exceptions.ResponseException as excep:
+    print('SKIPPING due to ResponseException:')
+    print(excep)
+    time.sleep(30)
+    continue
 
 
