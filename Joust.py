@@ -165,15 +165,15 @@ class Joust:
                 elif(jouster2.minorInjuries >= 1):
                         battlemessage += "{} suffers a minor injury  in the joust.\n\n".format(jouster2.name)
                         
-                elif(jouster1.moderateInjuries >= 1):
+                elif(jouster1.majorInjuries >= 1):
                         battlemessage += "{} suffers a major injury in the joust.\n\n".format(jouster1.name)
-                elif(jouster2.moderateInjuries >= 1):
+                elif(jouster2.majorInjuries >= 1):
                         battlemessage += "{} suffers a major injury in the joust.\n\n".format(jouster2.name)
                         
-                elif(jouster1.majorInjuries >= 1):
+                elif(jouster1.criticalInjuries >= 1):
                         battlemessage += "{} is critically injured in the joust.\n\n".format(jouster1.name)
                         injuryRoll = random.randint(1,10)
-                elif(jouster2.majorInjuries >= 1):
+                elif(jouster2.criticalInjuries >= 1):
                         battlemessage += "{} is critically injured in the joust.\n\n".format(jouster2.name)
                         injuryRoll = random.randint(1,10)
                         
